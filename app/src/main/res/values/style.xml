@@ -3,4 +3,7 @@
     <style name="SplashScreenStyle" parent="Theme.MaterialComponents.NoActionBar">
         <item name="android:windowBackground">@drawable/splash_brand_logo</item>
     </style>
+    <style name="Background" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="android:windowBackground">@drawable/background_main</item>
+    </style>
 </resources>

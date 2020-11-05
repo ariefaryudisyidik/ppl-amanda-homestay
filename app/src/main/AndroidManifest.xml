@@ -22,10 +22,12 @@
         </activity>
         <activity
             android:name=".ui.login.LoginActivity"
-            android:label="@string/title_activity_login"></activity>
+            android:label="@string/title_activity_login"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Background"/>
     </application>
 
 </manifest>
