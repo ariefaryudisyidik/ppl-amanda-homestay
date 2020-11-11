@@ -6,187 +6,194 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="15dp"
+    android:weightSum="10"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="110dp">
+        android:layout_height="0dp"
+        android:layout_marginBottom="37dp"
+        android:layout_weight="1">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="17dp"
-            android:layout_marginTop="7dp"
+            android:layout_marginTop="11dp"
             android:fontFamily="sans-serif-medium"
             android:text="Selamat Datang,\nAmanda"
             android:textColor="@color/black"
             android:textSize="21sp" />
-    </LinearLayout>
+    </RelativeLayout>
 
-    <LinearLayout
+    <androidx.gridlayout.widget.GridLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        app:alignmentMode="alignMargins"
+        app:columnCount="2"
+        app:columnOrderPreserved="false"
+        app:rowCount="2">
 
-        android:layout_weight="1"
-        android:orientation="horizontal">
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="29dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="29dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="11dp"
+            app:cardElevation="11dp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginRight="5dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="11dp"
-                app:cardElevation="11dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15dp"
+                android:orientation="vertical"
+                android:weightSum="3">
 
                 <ImageView
                     android:layout_width="91dp"
-                    android:layout_height="91dp"
+                    android:layout_height="94dp"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="7dp"
+                    android:layout_weight="2"
                     android:src="@drawable/ic_pembukuan" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_marginBottom="9dp"
+                    android:layout_weight="1"
                     android:fontFamily="sans-serif"
                     android:gravity="center"
                     android:text="Pembukuan"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
-            </androidx.cardview.widget.CardView>
+            </LinearLayout>
 
-        </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="5dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="29dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="29dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="11dp"
+            app:cardElevation="11dp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="11dp"
-                app:cardElevation="11dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15dp"
+                android:orientation="vertical"
+                android:weightSum="3">
 
                 <ImageView
                     android:layout_width="91dp"
                     android:layout_height="91dp"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="7dp"
+                    android:layout_weight="2"
                     android:src="@drawable/ic_status_kamar" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_marginBottom="9dp"
+                    android:layout_weight="1"
                     android:fontFamily="sans-serif"
                     android:gravity="center"
                     android:text="Status Kamar"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
-            </androidx.cardview.widget.CardView>
-        </LinearLayout>
-    </LinearLayout>
+            </LinearLayout>
 
+        </androidx.cardview.widget.CardView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="29dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="11dp"
+            app:cardElevation="11dp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginRight="5dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="11dp"
-                app:cardElevation="11dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15dp"
+                android:orientation="vertical"
+                android:weightSum="3">
 
                 <ImageView
                     android:layout_width="91dp"
                     android:layout_height="91dp"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="7dp"
+                    android:layout_weight="2"
                     android:src="@drawable/ic_data_penyewa" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_marginBottom="9dp"
+                    android:layout_weight="1"
                     android:fontFamily="sans-serif"
                     android:gravity="center"
                     android:text="Data Penyewa"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
-            </androidx.cardview.widget.CardView>
-        </LinearLayout>
+            </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="5dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
+        </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="11dp"
-                app:cardElevation="11dp">
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="29dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="11dp"
+            app:cardElevation="11dp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15dp"
+                android:orientation="vertical"
+                android:weightSum="3">
 
                 <ImageView
                     android:layout_width="91dp"
                     android:layout_height="91dp"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="7dp"
+                    android:layout_weight="2"
                     android:src="@drawable/ic_notifikasi" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_marginBottom="9dp"
+                    android:layout_weight="1"
                     android:fontFamily="sans-serif"
                     android:gravity="center"
                     android:text="Notifikasi"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
-            </androidx.cardview.widget.CardView>
-        </LinearLayout>
-    </LinearLayout>
+            </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+        </androidx.cardview.widget.CardView>
 
-    </LinearLayout>
+    </androidx.gridlayout.widget.GridLayout>
 
 
 </LinearLayout>
