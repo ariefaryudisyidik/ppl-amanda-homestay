@@ -16,6 +16,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="17dp"
+            android:layout_marginTop="7dp"
+            android:fontFamily="sans-serif-medium"
             android:text="Selamat Datang,\nAmanda"
             android:textColor="@color/black"
             android:textSize="21sp" />
@@ -44,15 +46,18 @@
                 app:cardElevation="11dp">
 
                 <ImageView
-                    android:layout_width="105dp"
-                    android:layout_height="105dp"
+                    android:layout_width="91dp"
+                    android:layout_height="91dp"
                     android:layout_gravity="center"
+                    android:layout_marginBottom="7dp"
                     android:src="@drawable/ic_pembukuan" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
+                    android:layout_marginBottom="9dp"
+                    android:fontFamily="sans-serif"
                     android:gravity="center"
                     android:text="Pembukuan"
                     android:textColor="@color/black"
@@ -77,15 +82,18 @@
                 app:cardElevation="11dp">
 
                 <ImageView
-                    android:layout_width="105dp"
-                    android:layout_height="105dp"
+                    android:layout_width="91dp"
+                    android:layout_height="91dp"
                     android:layout_gravity="center"
+                    android:layout_marginBottom="7dp"
                     android:src="@drawable/ic_status_kamar" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
+                    android:layout_marginBottom="9dp"
+                    android:fontFamily="sans-serif"
                     android:gravity="center"
                     android:text="Status Kamar"
                     android:textColor="@color/black"
@@ -117,15 +125,18 @@
                 app:cardElevation="11dp">
 
                 <ImageView
-                    android:layout_width="105dp"
-                    android:layout_height="105dp"
+                    android:layout_width="91dp"
+                    android:layout_height="91dp"
                     android:layout_gravity="center"
+                    android:layout_marginBottom="7dp"
                     android:src="@drawable/ic_data_penyewa" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
+                    android:layout_marginBottom="9dp"
+                    android:fontFamily="sans-serif"
                     android:gravity="center"
                     android:text="Data Penyewa"
                     android:textColor="@color/black"
@@ -149,15 +160,18 @@
                 app:cardElevation="11dp">
 
                 <ImageView
-                    android:layout_width="105dp"
-                    android:layout_height="105dp"
+                    android:layout_width="91dp"
+                    android:layout_height="91dp"
                     android:layout_gravity="center"
+                    android:layout_marginBottom="7dp"
                     android:src="@drawable/ic_notifikasi" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
+                    android:layout_marginBottom="9dp"
+                    android:fontFamily="sans-serif"
                     android:gravity="center"
                     android:text="Notifikasi"
                     android:textColor="@color/black"
