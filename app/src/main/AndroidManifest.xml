@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AmandaHomestay.Light">
         <activity android:name=".OnboardingActivity"
-            android:theme="@style/Theme.MaterialComponents.NoActionBar"></activity>
+            android:theme="@style/Theme.AmandaHomestay.Light"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".SplashActivity"
             android:screenOrientation="portrait"

@@ -1,25 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_main"
+    android:background="@color/white"
     android:orientation="vertical"
-    android:weightSum="10"
     tools:context=".OnboardingActivity">
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/vp_slide_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"></androidx.viewpager.widget.ViewPager>
+        android:id="@+id/vp_slide"
+        android:layout_width="0dp"
+        android:layout_height="597dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <LinearLayout
-        android:id="@+id/linear_dots_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="9"
-        android:orientation="horizontal"></LinearLayout>
+    </androidx.viewpager.widget.ViewPager>
 
-</LinearLayout>
+    <Button
+        android:id="@+id/btn_get_started"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="99dp"
+        android:background="@drawable/btn_gradient_style"
+        android:text="Memulai"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@android:color/transparent"
+        android:text="Selanjutnya"
+        android:textColor="@color/primary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@android:color/transparent"
+        android:text="Kembali"
+        android:textColor="@color/primary"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="99dp"
+        android:layout_marginEnd="99dp"
+        android:layout_marginBottom="16dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tabBackground="@drawable/indicator_selector"
+        app:tabIndicatorColor="@color/gradient_start_color"
+        app:tabRippleColor="@android:color/transparent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

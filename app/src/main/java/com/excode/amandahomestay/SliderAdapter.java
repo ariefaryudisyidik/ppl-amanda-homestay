@@ -1,7 +1,6 @@
 package com.excode.amandahomestay;
 
 import android.content.Context;
-import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,12 +11,12 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewpager.widget.PagerAdapter;
 
+
 public class SliderAdapter extends PagerAdapter {
     Context context;
     LayoutInflater layoutInflater;
     ImageView ivSlideImage;
     TextView tvSlideHeading, tvSlideDesc;
-
 
     public SliderAdapter(Context context) {
         this.context = context;
@@ -58,7 +57,7 @@ public class SliderAdapter extends PagerAdapter {
         layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.slide_layout, container, false);
         ivSlideImage = view.findViewById(R.id.iv_slide_image);
-        tvSlideHeading = view.findViewById(R.id.tv_slide_heading);
+        tvSlideHeading = view.findViewById(R.id.tv_slide_title);
         tvSlideDesc = view.findViewById(R.id.tv_slide_desc);
 
         ivSlideImage.setImageResource(slideImages[position]);
@@ -73,4 +72,5 @@ public class SliderAdapter extends PagerAdapter {
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
         container.removeView((ConstraintLayout) object);
     }
+
 }
