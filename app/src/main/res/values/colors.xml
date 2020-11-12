@@ -7,4 +7,13 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- colors for button style-->
+    <color name="gradient_start_color">#4C84FF</color>
+    <color name="gradient_end_color">#18A3FE</color>
+
+    <!-- colors for tab and screen text-->
+    <color name="tab_indicator_gray">#C0C0C0</color>
+    <color name="intro_title_color">#000000</color>
+    <color name="intro_description_color">#656565</color>
 </resources>
