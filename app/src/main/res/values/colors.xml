@@ -14,6 +14,7 @@
 
     <!-- colors for tab and screen text-->
     <color name="tab_indicator_gray">#C0C0C0</color>
+    <color name="tab_indicator_gray_transparent">#BFC0C0C0</color>
     <color name="intro_title_color">#000000</color>
     <color name="intro_description_color">#656565</color>
 

@@ -3,9 +3,13 @@ package com.excode.amandahomestay;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -19,15 +23,28 @@ public class OnboardingActivity extends AppCompatActivity implements View.OnClic
     private TabLayout tabIndicator;
     private SliderAdapter sliderAdapter;
     private Button btnNext, btnBack, btnGetStarted;
+    private Animation btnAnim;
     private int currentPage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_onboarding);
-
+        // make activity fullscreen
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
+
+        // when this activity is about to be launch we need to check if its opened before or not
+        if (restorePrefData()) {
+            Intent mainActivityIntent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(mainActivityIntent);
+            finish();
+        }
+
+        setContentView(R.layout.activity_onboarding);
+
+
+
+
 
         slideViewPager = findViewById(R.id.vp_slide);
         tabIndicator = findViewById(R.id.tab_indicator);
@@ -41,9 +58,11 @@ public class OnboardingActivity extends AppCompatActivity implements View.OnClic
         btnNext = findViewById(R.id.btn_next);
         btnBack = findViewById(R.id.btn_back);
         btnGetStarted = findViewById(R.id.btn_get_started);
+        btnAnim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.btn_animation);
 
         btnNext.setOnClickListener(this);
         btnBack.setOnClickListener(this);
+        btnGetStarted.setOnClickListener(this);
     }
 
     ViewPager.OnPageChangeListener viewListener = new ViewPager.OnPageChangeListener() {
@@ -59,20 +78,16 @@ public class OnboardingActivity extends AppCompatActivity implements View.OnClic
             if (position == 0) {
                 btnNext.setEnabled(true);
                 btnBack.setEnabled(false);
-
                 btnNext.setVisibility(View.VISIBLE);
                 btnBack.setVisibility(View.INVISIBLE);
-
                 btnGetStarted.setVisibility(View.INVISIBLE);
                 btnNext.setText("Selanjutnya");
                 btnBack.setText("");
             } else if (position < sliderAdapter.slideHeadings.length - 1) {
                 btnNext.setEnabled(true);
                 btnBack.setEnabled(true);
-
                 btnNext.setVisibility(View.VISIBLE);
                 btnBack.setVisibility(View.VISIBLE);
-
                 btnGetStarted.setVisibility(View.INVISIBLE);
                 btnNext.setText("Selanjutnya");
                 btnBack.setText("Kembali");
@@ -82,14 +97,12 @@ public class OnboardingActivity extends AppCompatActivity implements View.OnClic
                 btnNext.setVisibility(View.INVISIBLE);
                 btnBack.setVisibility(View.INVISIBLE);
                 btnGetStarted.setVisibility(View.VISIBLE);
-                btnNext.setText("Selesai");
-                btnBack.setText("Kembali");
+                loadLastScreen();
             }
         }
 
         @Override
         public void onPageScrollStateChanged(int state) {
-
         }
     };
 
@@ -105,13 +118,35 @@ public class OnboardingActivity extends AppCompatActivity implements View.OnClic
             case R.id.btn_back:
                 slideViewPager.setCurrentItem(currentPage - 1);
                 break;
+            case R.id.btn_get_started:
+                // open MainActivity
+                Intent mainActivityIntent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(mainActivityIntent);
+                // check Onboarding complete or not
+                savePrefData();
+                finish();
+                break;
         }
+    }
+
+    private void savePrefData() {
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("myPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putBoolean("onboardingComplete", true);;
+        editor.commit();
+    }
+
+    private boolean restorePrefData() {
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("myPrefs", MODE_PRIVATE);
+        Boolean isOnboardingActivityOpenedBefore = pref.getBoolean("onboardingComplete", false);
+        return isOnboardingActivityOpenedBefore;
     }
 
     private void loadLastScreen() {
         btnNext.setVisibility(View.INVISIBLE);
         btnBack.setVisibility(View.INVISIBLE);
         btnGetStarted.setVisibility(View.VISIBLE);
-
+        // setup animation
+        btnGetStarted.setAnimation(btnAnim);
     }
 }

@@ -11,7 +11,8 @@
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/vp_slide"
         android:layout_width="0dp"
-        android:layout_height="597dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -34,27 +35,33 @@
 
     <Button
         android:id="@+id/btn_next"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:background="@android:color/transparent"
+        android:gravity="center|right"
         android:text="Selanjutnya"
         android:textColor="@color/primary"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tab_indicator" />
 
     <Button
         android:id="@+id/btn_back"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginBottom="16dp"
         android:background="@android:color/transparent"
+        android:gravity="center|left"
         android:text="Kembali"
         android:textColor="@color/primary"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tab_indicator"
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.tabs.TabLayout
