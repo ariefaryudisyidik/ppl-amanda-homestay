@@ -43,7 +43,7 @@
         android:background="@android:color/transparent"
         android:gravity="center|right"
         android:text="Selanjutnya"
-        android:textColor="@color/primary"
+        android:textColor="@color/primary_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tab_indicator" />
@@ -58,7 +58,7 @@
         android:background="@android:color/transparent"
         android:gravity="center|left"
         android:text="Kembali"
-        android:textColor="@color/primary"
+        android:textColor="@color/primary_dark"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tab_indicator"

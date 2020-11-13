@@ -9,9 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_amanda_homestay"
         android:supportsRtl="true"
         android:theme="@style/Theme.AmandaHomestay.Light">
-        <activity android:name=".OnboardingActivity"
-            android:theme="@style/Theme.AmandaHomestay.Light"
-            android:screenOrientation="portrait"></activity>
+        <activity android:name=".LoginActivity"></activity>
+        <activity
+            android:name=".OnboardingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AmandaHomestay.Light" />
         <activity
             android:name=".SplashActivity"
             android:screenOrientation="portrait"
@@ -25,7 +27,7 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Background" />
+            android:theme="@style/Theme.AmandaHomestay.Light" />
     </application>
 
 </manifest>

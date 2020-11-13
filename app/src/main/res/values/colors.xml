@@ -9,8 +9,8 @@
     <color name="white">#FFFFFFFF</color>
 
     <!-- colors for button style-->
-    <color name="gradient_start_color">#4C84FF</color>
-    <color name="gradient_end_color">#18A3FE</color>
+    <color name="gradient_start_color">#007ac1</color>
+    <color name="gradient_end_color">#03a9f4</color>
 
     <!-- colors for tab and screen text-->
     <color name="tab_indicator_gray">#C0C0C0</color>
@@ -18,6 +18,8 @@
     <color name="intro_title_color">#000000</color>
     <color name="intro_description_color">#656565</color>
 
-    <color name="primary">#4C84FF</color>
-    <color name="primary_dark">#BF4C84FF</color>
+    <color name="primary">#03a9f4</color>
+    <color name="primary_light">#67daff</color>
+    <color name="primary_dark">#007ac1</color>
+
 </resources>
