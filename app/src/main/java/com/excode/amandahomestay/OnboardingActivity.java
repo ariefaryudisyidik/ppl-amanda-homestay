@@ -138,8 +138,8 @@ public class OnboardingActivity extends AppCompatActivity implements View.OnClic
 
     private boolean restorePrefData() {
         SharedPreferences pref = getApplicationContext().getSharedPreferences("myPrefs", MODE_PRIVATE);
-        Boolean isOnboardingActivityOpenedBefore = pref.getBoolean("onboardingComplete", false);
-        return isOnboardingActivityOpenedBefore;
+        Boolean onboardingComplete = pref.getBoolean("onboardingComplete", false);
+        return onboardingComplete;
     }
 
     private void loadLastScreen() {
