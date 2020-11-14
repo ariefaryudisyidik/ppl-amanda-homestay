@@ -35,8 +35,8 @@ public class OnboardingActivity extends AppCompatActivity implements View.OnClic
 
         // when this activity is about to be launch we need to check if its opened before or not
         if (restorePrefData()) {
-            Intent mainActivityIntent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(mainActivityIntent);
+            Intent loginActivityIntent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(loginActivityIntent);
             finish();
         }
 
@@ -120,8 +120,8 @@ public class OnboardingActivity extends AppCompatActivity implements View.OnClic
                 break;
             case R.id.btn_get_started:
                 // open MainActivity
-                Intent mainActivityIntent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(mainActivityIntent);
+                Intent loginActivityIntent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(loginActivityIntent);
                 // check Onboarding complete or not
                 savePrefData();
                 finish();
