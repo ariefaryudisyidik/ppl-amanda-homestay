@@ -25,7 +25,7 @@
         android:layout_width="125dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="99dp"
-        android:background="@drawable/btn_gradient_style_white"
+        android:background="@drawable/gradient_white"
         android:hapticFeedbackEnabled="false"
         android:text="Memulai"
         android:textAllCaps="true"

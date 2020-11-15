@@ -53,6 +53,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     Intent mainActivityIntent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(mainActivityIntent);
                     savePrefData();
+                    Toast.makeText(getApplicationContext(), "Login Berhasil", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Selamat datang Amanda!", Toast.LENGTH_SHORT).show();
                     finish();
                 } else {
                     Toast.makeText(getApplicationContext(), "Username atau Password salah", Toast.LENGTH_SHORT).show();
