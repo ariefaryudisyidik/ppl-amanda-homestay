@@ -17,13 +17,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     EditText edtUsername, edtPassword;
     Button btnLogin;
-    TextView test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         // check login or no
+
         if (restorePrefData()) {
             Intent mainActivityIntent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(mainActivityIntent);
@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void savePrefData() {
-        SharedPreferences pref = getApplicationContext().getSharedPreferences("loginPrefs",  MODE_PRIVATE);
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("loginPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
         editor.putBoolean("alreadyLogin", true);
         editor.commit();

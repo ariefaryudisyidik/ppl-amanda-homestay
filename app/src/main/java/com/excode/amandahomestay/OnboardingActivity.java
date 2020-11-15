@@ -120,7 +120,7 @@ public class OnboardingActivity extends AppCompatActivity implements View.OnClic
                 break;
             case R.id.btn_get_started:
                 // open MainActivity
-                Intent loginActivityIntent = new Intent(getApplicationContext(), LoginActivity.class);
+                Intent loginActivityIntent = new Intent(getApplicationContext(), CobaActivity.class);
                 startActivity(loginActivityIntent);
                 // check Onboarding complete or not
                 savePrefData();
@@ -130,14 +130,14 @@ public class OnboardingActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void savePrefData() {
-        SharedPreferences pref = getApplicationContext().getSharedPreferences("myPrefs", MODE_PRIVATE);
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("onboardPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
         editor.putBoolean("onboardingComplete", true);;
         editor.commit();
     }
 
     private boolean restorePrefData() {
-        SharedPreferences pref = getApplicationContext().getSharedPreferences("myPrefs", MODE_PRIVATE);
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("onboardPrefs ", MODE_PRIVATE);
         Boolean onboardingComplete = pref.getBoolean("onboardingComplete", false);
         return onboardingComplete;
     }
