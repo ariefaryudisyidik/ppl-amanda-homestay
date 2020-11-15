@@ -6,6 +6,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
@@ -120,7 +121,7 @@ public class OnboardingActivity extends AppCompatActivity implements View.OnClic
                 break;
             case R.id.btn_get_started:
                 // open MainActivity
-                Intent loginActivityIntent = new Intent(getApplicationContext(), CobaActivity.class);
+                Intent loginActivityIntent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(loginActivityIntent);
                 // check Onboarding complete or not
                 savePrefData();

@@ -31,9 +31,10 @@ public class MainActivity extends AppCompatActivity {
         // Cast
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
-        toolbar = findViewById(R.id.toolbar);
 
         // Toolbar
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         /*
         // Navigation Drawer
