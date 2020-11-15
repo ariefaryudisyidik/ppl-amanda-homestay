@@ -60,7 +60,7 @@
                     android:layout_height="94dp"
                     android:layout_gravity="center"
                     android:layout_weight="2"
-                    android:src="@drawable/ic_pembukuan" />
+                    android:src="@drawable/ic_bookkeeping" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -139,7 +139,7 @@
                     android:layout_height="91dp"
                     android:layout_gravity="center"
                     android:layout_weight="2"
-                    android:src="@drawable/ic_data_penyewa" />
+                    android:src="@drawable/ic_tenant_data" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -178,7 +178,7 @@
                     android:layout_height="91dp"
                     android:layout_gravity="center"
                     android:layout_weight="2"
-                    android:src="@drawable/ic_notifikasi" />
+                    android:src="@drawable/ic_notification" />
 
                 <TextView
                     android:layout_width="match_parent"

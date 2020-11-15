@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/bg_onboard"
     android:orientation="vertical"
     tools:context=".OnboardingActivity">
 
@@ -21,13 +21,15 @@
 
     <Button
         android:id="@+id/btn_get_started"
+        style="@style/ButtonStyle"
         android:layout_width="125dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="99dp"
-        android:background="@drawable/btn_gradient_style"
+        android:background="@drawable/btn_gradient_style_white"
+        android:hapticFeedbackEnabled="false"
         android:text="Memulai"
         android:textAllCaps="true"
-        android:textColor="@color/white"
+        android:textColor="@color/primary"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,7 +45,7 @@
         android:background="@android:color/transparent"
         android:gravity="center|right"
         android:text="Selanjutnya"
-        android:textColor="@color/primary"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tab_indicator" />
@@ -58,7 +60,7 @@
         android:background="@android:color/transparent"
         android:gravity="center|left"
         android:text="Kembali"
-        android:textColor="@color/primary"
+        android:textColor="@color/white"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tab_indicator"
@@ -76,7 +78,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:tabBackground="@drawable/indicator_selector"
-        app:tabIndicatorColor="@color/primary"
+        app:tabIndicatorColor="@color/white"
         app:tabRippleColor="@android:color/transparent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

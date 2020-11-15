@@ -3,27 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_onboard">
 
     <ImageView
         android:id="@+id/iv_slide_image"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="299dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/ic_pembukuan" />
+        tools:srcCompat="@drawable/ic_bookkeeping" />
 
     <TextView
         android:id="@+id/tv_slide_title"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:fontFamily="sans-serif-medium"
         android:text="Pembukuan"
-        android:textColor="@color/intro_title_color"
+        android:textAlignment="center"
+        android:textColor="@color/white"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -32,16 +34,18 @@
 
     <TextView
         android:id="@+id/tv_slide_desc"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:padding="17dp"
-        android:text='"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi gravida interdum purus at posuere. Pellentesque id sem nec tellus semper fringilla. Morbi tristique lorem et euismod molestie."'
+        android:text="Mencatat data dengan mudah dan teratur"
         android:textAlignment="center"
-        android:textColor="@color/intro_description_color"
+        android:textColor="@color/white"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_slide_title" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

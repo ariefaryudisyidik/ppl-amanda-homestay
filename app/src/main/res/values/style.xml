@@ -5,7 +5,11 @@
         <item name="android:windowBackground">@drawable/splash_brand_logo</item>
     </style>
 
-    <style name="Background" parent="Theme.MaterialComponents.NoActionBar">
-        <item name="android:windowBackground">@drawable/background_main</item>
+    <style name="ButtonStyle" parent="Widget.MaterialComponents.Button">
+        <item name="materialThemeOverlay">@style/WhiteButtonThemeOverlay</item>
+    </style>
+
+    <style name="WhiteButtonThemeOverlay">
+        <item name="colorPrimary">@color/white</item>
     </style>
 </resources>

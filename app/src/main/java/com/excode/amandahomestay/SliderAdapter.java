@@ -24,21 +24,21 @@ public class SliderAdapter extends PagerAdapter {
 
     // Arrays
     public int[] slideImages = {
-            R.drawable.ic_pembukuan,
-            R.drawable.ic_data_penyewa,
-            R.drawable.ic_notifikasi
+            R.drawable.ic_bookkeeping,
+            R.drawable.ic_room_status,
+            R.drawable.ic_notification
     };
 
     public String[] slideHeadings = {
             "Pembukuan",
-            "Data Penyewa",
+            "Data Penyewa & Kamar",
             "Notifikasi"
     };
 
     public String[] slideDescs = {
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi gravida interdum purus at posuere. Pellentesque id sem nec tellus semper fringilla. Morbi tristique lorem et euismod molestie.",
-            "Quisque orci turpis, commodo in auctor sed, imperdiet a quam. Pellentesque varius egestas tincidunt. ",
-            "Donec rhoncus tortor felis, vel lacinia turpis viverra quis. In blandit metus enim, quis efficitur ipsum scelerisque eu. Ut sed fermentum elit"
+            "Mencatat data dengan mudah dan teratur",
+            "Semua data tentang penyewa kos dan\nInformasi kamar",
+            "Info tentang aktifitas serta tunggakan\ntagihan bulanan"
     };
 
     @Override
