@@ -30,6 +30,7 @@ public class OnboardingActivity extends AppCompatActivity implements View.OnClic
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_onboarding);
         // make activity fullscreen
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
@@ -40,13 +41,6 @@ public class OnboardingActivity extends AppCompatActivity implements View.OnClic
             startActivity(loginActivityIntent);
             finish();
         }
-
-        setContentView(R.layout.activity_onboarding);
-
-
-
-
-
         slideViewPager = findViewById(R.id.vp_slide);
         tabIndicator = findViewById(R.id.tab_indicator);
 
@@ -133,12 +127,12 @@ public class OnboardingActivity extends AppCompatActivity implements View.OnClic
     private void savePrefData() {
         SharedPreferences pref = getApplicationContext().getSharedPreferences("onboardPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
-        editor.putBoolean("onboardingComplete", true);;
+        editor.putBoolean("onboardingComplete", true);
         editor.commit();
     }
 
     private boolean restorePrefData() {
-        SharedPreferences pref = getApplicationContext().getSharedPreferences("onboardPrefs ", MODE_PRIVATE);
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("onboardPrefs", MODE_PRIVATE);
         Boolean onboardingComplete = pref.getBoolean("onboardingComplete", false);
         return onboardingComplete;
     }
