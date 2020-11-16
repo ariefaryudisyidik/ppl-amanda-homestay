@@ -28,29 +28,36 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /*
+        if (restorePrefData()) {
+            Intent loginActivityIntent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(loginActivityIntent);
+        }
+         */
+
         // Cast
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
+        toolbar = findViewById(R.id.toolbar);
 
         // Toolbar
-        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        /*
         // Navigation Drawer
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-         */
     }
 
+    /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_menu, menu);
         return true;
     }
+     */
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -58,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.menu_logout:
                 Intent loginActivityIntent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(loginActivityIntent);
+                savePrefData();
                 finish();
                 return true;
             default:

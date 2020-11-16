@@ -1,5 +1,6 @@
 package com.excode.amandahomestay;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -22,15 +23,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+/*
         // check login or no
-
         if (restorePrefData()) {
             Intent mainActivityIntent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(mainActivityIntent);
             finish();
         }
 
-
+ */
         // fullscreen view
         getSupportActionBar().hide();
 
@@ -55,10 +56,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     startActivity(mainActivityIntent);
                     savePrefData();
                     Toast.makeText(getApplicationContext(), "Login Berhasil", Toast.LENGTH_SHORT).show();
-                    Toast.makeText(getApplicationContext(), "Selamat datang Amanda!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Selamat datang, Amanda!", Toast.LENGTH_SHORT).show();
                     finish();
                 } else {
-                    Toast.makeText(getApplicationContext(), "Username atau Password salah", Toast.LENGTH_SHORT).show();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+                    builder.setMessage("Username atau Password salah!").setNegativeButton("Coba lagi", null).create().show();
                 }
                 break;
         }
