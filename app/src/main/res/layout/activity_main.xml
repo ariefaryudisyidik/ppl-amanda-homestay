@@ -59,6 +59,7 @@
             app:rowCount="3">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cv_bookkeeping"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginLeft="15dp"
@@ -99,6 +100,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cv_room_status"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginLeft="15dp"
@@ -139,6 +141,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cv_tenant_data"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginLeft="15dp"
@@ -178,6 +181,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cv_notification"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginLeft="15dp"
@@ -217,6 +221,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cv_booking"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginLeft="15dp"
@@ -256,6 +261,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cv_note"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginLeft="15dp"
