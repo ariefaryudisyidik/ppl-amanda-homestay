@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+        navigationView.setCheckedItem(R.id.nav_home);
 
         navigationView.setNavigationItemSelectedListener(this);
     }
@@ -65,19 +66,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.nav_home:
+                break;
+            case R.id.nav_about:
+                break;
+            case R.id.nav_logout:
+                savePrefData();
+                Intent logoutIntent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(logoutIntent);
+                finish();
+                break;
+        }
+        drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
 
     private void savePrefData() {
-        SharedPreferences pref = getApplicationContext().getSharedPreferences("logoutPrefs", MODE_PRIVATE);
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("loginPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
-        editor.putBoolean("alreadyLogout", true);
+        editor.putBoolean("alreadyLogin", false);
         editor.commit();
-    }
-
-    private boolean restorePrefData() {
-        SharedPreferences pref = getApplicationContext().getSharedPreferences("logoutPrefs", MODE_PRIVATE);
-        Boolean alreadyLogout = pref.getBoolean("alreadyLogout", false);
-        return alreadyLogout;
     }
 }
