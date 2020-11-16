@@ -23,7 +23,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-/*
+
         // check login or no
         if (restorePrefData()) {
             Intent mainActivityIntent = new Intent(getApplicationContext(), MainActivity.class);
@@ -31,7 +31,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             finish();
         }
 
- */
         // fullscreen view
         getSupportActionBar().hide();
 
