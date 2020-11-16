@@ -32,22 +32,34 @@
         android:padding="15dp"
         android:weightSum="10">
 
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="33dp"
             android:layout_weight="1">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="17dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginStart="16dp"
                 android:fontFamily="sans-serif-medium"
                 android:text="Selamat Datang,\nAmanda"
                 android:textColor="@color/black"
-                android:textSize="21sp" />
-        </RelativeLayout>
+                android:textSize="21sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_amanda_homestay"
+                android:layout_width="99dp"
+                android:layout_height="99dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/ic_logo_amanda_homestay"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.gridlayout.widget.GridLayout
             android:layout_width="match_parent"

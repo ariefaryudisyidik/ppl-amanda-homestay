@@ -9,7 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_amanda_homestay"
         android:supportsRtl="true"
         android:theme="@style/Theme.AmandaHomestay.Light">
-        <activity android:name=".TenantActivity"></activity>
+        <activity
+            android:name=".RoomStatusActivity"
+            android:label="Status Kamar"
+            android:parentActivityName=".MainActivity"></activity>
+        <activity
+            android:name=".TenantActivity"
+            android:label="Data Penyewa"
+            android:parentActivityName=".MainActivity"/>
         <activity android:name=".LoginActivity" />
         <activity
             android:name=".OnboardingActivity"

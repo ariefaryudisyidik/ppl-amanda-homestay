@@ -115,6 +115,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.cv_bookkeeping:
                 break;
             case R.id.cv_room_status:
+                Intent roomStatusIntent = new Intent(MainActivity.this, RoomStatusActivity.class);
+                startActivity(roomStatusIntent);
                 break;
             case R.id.cv_tenant_data:
                 Intent tenantDataIntent = new Intent(MainActivity.this, TenantActivity.class);
