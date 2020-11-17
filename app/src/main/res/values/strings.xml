@@ -15,4 +15,13 @@
     <!-- Strings used for Activity for Tenant Data -->
     <string name="tenant_name">Nama Penyewa</string>
     <string name="detail">Detail</string>
+
+    <string name="bookkeeping_info">Harap masukan data pembukuan dengan benar</string>
+    <string name="name">Nama</string>
+    <string name="room_number">Nomor Kamar</string>
+    <string name="entry_date">Tanggal Masuk</string>
+    <string name="out_date">Tanggal Keluar</string>
+    <string name="price">Harga</string>
+    <string name="save">Simpan</string>
+    <string name="cancel">Batal</string>
 </resources>

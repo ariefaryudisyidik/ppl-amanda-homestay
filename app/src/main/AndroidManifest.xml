@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_amanda_homestay"
         android:supportsRtl="true"
         android:theme="@style/Theme.AmandaHomestay.Light">
-        <activity android:name=".BookkeepingActivity"></activity>
+        <activity android:name=".BookkeepingActivity"
+            android:label="Pembukuan"
+            android:parentActivityName=".MainActivity"></activity>
         <activity
             android:name=".RoomStatusActivity"
             android:label="Status Kamar"

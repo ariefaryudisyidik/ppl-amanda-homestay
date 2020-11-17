@@ -113,6 +113,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.cv_bookkeeping:
+                Intent bookkeepingIntent = new Intent(MainActivity.this, BookkeepingActivity.class);
+                startActivity(bookkeepingIntent);
                 break;
             case R.id.cv_room_status:
                 Intent roomStatusIntent = new Intent(MainActivity.this, RoomStatusActivity.class);
