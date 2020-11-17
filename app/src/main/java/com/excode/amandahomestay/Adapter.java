@@ -1,11 +1,9 @@
 package com.excode.amandahomestay;
 
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,11 +14,11 @@ import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
 
-public class ListTenantAdapter extends RecyclerView.Adapter<ListTenantAdapter.ListViewHolder> {
-    private ArrayList<Tenant> listTenant;
+public class Adapter extends RecyclerView.Adapter<Adapter.ListViewHolder> {
+    private ArrayList<GetterSetter> listGetterSetter;
 
-    public ListTenantAdapter(ArrayList<Tenant> list) {
-        this.listTenant = list;
+    public Adapter(ArrayList<GetterSetter> list) {
+        this.listGetterSetter = list;
     }
 
     @NonNull
@@ -32,15 +30,15 @@ public class ListTenantAdapter extends RecyclerView.Adapter<ListTenantAdapter.Li
 
     @Override
     public void onBindViewHolder(@NonNull ListViewHolder holder, int position) {
-        Tenant tenant = listTenant.get(position);
-        Glide.with(holder.itemView.getContext()).load(tenant.getPhoto()).apply(new RequestOptions().override(55, 55)).into(holder.imgPhoto);
-        holder.tvName.setText(tenant.getName());
-        holder.tvDetail.setText(tenant.getDetail());
+        GetterSetter getterSetter = listGetterSetter.get(position);
+        Glide.with(holder.itemView.getContext()).load(getterSetter.getPhoto()).apply(new RequestOptions().override(55, 55)).into(holder.imgPhoto);
+        holder.tvName.setText(getterSetter.getName());
+        holder.tvDetail.setText(getterSetter.getDetail());
     }
 
     @Override
     public int getItemCount() {
-        return listTenant.size();
+        return listGetterSetter.size();
     }
 
     public class ListViewHolder extends RecyclerView.ViewHolder {

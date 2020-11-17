@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class TenantActivity extends AppCompatActivity {
     private RecyclerView rvTenants;
-    private ArrayList<Tenant> list = new ArrayList<>();
+    private ArrayList<GetterSetter> list = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,13 +21,13 @@ public class TenantActivity extends AppCompatActivity {
         rvTenants.setHasFixedSize(true);
 
         // TenantsData
-        list.addAll(TenantsData.getListData());
+        list.addAll(Dataset.getListData());
         showRecyclerList();
     }
 
     private void showRecyclerList() {
         rvTenants.setLayoutManager(new LinearLayoutManager(this));
-        ListTenantAdapter listTenantAdapter = new ListTenantAdapter(list);
-        rvTenants.setAdapter(listTenantAdapter);
+        Adapter adapter = new Adapter(list);
+        rvTenants.setAdapter(adapter);
     }
 }

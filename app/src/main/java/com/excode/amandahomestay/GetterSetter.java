@@ -1,7 +1,8 @@
 package com.excode.amandahomestay;
 
-public class Tenant {
-    private String name;
+public class GetterSetter {
+    private String name, detail;
+    private int photo;
 
     public String getName() {
         return name;
@@ -9,6 +10,7 @@ public class Tenant {
 
     public void setName(String name) {
         this.name = name;
+
     }
 
     public String getDetail() {
@@ -27,6 +29,5 @@ public class Tenant {
         this.photo = photo;
     }
 
-    private String detail;
-    private int photo;
+
 }

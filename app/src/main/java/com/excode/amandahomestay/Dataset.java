@@ -2,7 +2,7 @@ package com.excode.amandahomestay;
 
 import java.util.ArrayList;
 
-public class TenantsData {
+public class Dataset {
     private static String[] tenantNames = {
             "Asep Ramadhan",
             "Mujiyanto"
@@ -26,14 +26,14 @@ public class TenantsData {
             R.drawable.ic_tenant_data
     };
 
-    static ArrayList<Tenant> getListData() {
-        ArrayList<Tenant> list = new ArrayList<>();
+    static ArrayList<GetterSetter> getListData() {
+        ArrayList<GetterSetter> list = new ArrayList<>();
         for (int position = 0; position < tenantNames.length; position++) {
-            Tenant tenant = new Tenant();
-            tenant.setName(tenantNames[position]);
-            tenant.setDetail(tenantDetails[position]);
-            tenant.setPhoto(tenantImages[position]);
-            list.add(tenant);
+            GetterSetter getterSetter = new GetterSetter();
+            getterSetter.setName(tenantNames[position]);
+            getterSetter.setDetail(tenantDetails[position]);
+            getterSetter.setPhoto(tenantImages[position]);
+            list.add(getterSetter);
         }
         return list;
     }
