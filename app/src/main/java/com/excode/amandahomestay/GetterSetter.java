@@ -1,33 +1,38 @@
 package com.excode.amandahomestay;
 
 public class GetterSetter {
-    private String name, detail;
-    private int photo;
+    private String tenantName, tenantDetail, roomNumber;
+    private int tenantPhoto;
 
-    public String getName() {
-        return name;
+    public String getTenantName() {
+        return tenantName;
     }
 
-    public void setName(String name) {
-        this.name = name;
-
+    public void setTenantName(String tenantName) {
+        this.tenantName = tenantName;
     }
 
-    public String getDetail() {
-        return detail;
+    public String getTenantDetail() {
+        return tenantDetail;
     }
 
-    public void setDetail(String detail) {
-        this.detail = detail;
+    public void setTenantDetail(String tenantDetail) {
+        this.tenantDetail = tenantDetail;
     }
 
-    public int getPhoto() {
-        return photo;
+    public int getTenantPhoto() {
+        return tenantPhoto;
     }
 
-    public void setPhoto(int photo) {
-        this.photo = photo;
+    public void setTenantPhoto(int tenantPhoto) {
+        this.tenantPhoto = tenantPhoto;
     }
 
+    public String getRoomNumber() {
+        return roomNumber;
+    }
 
+    public void setRoomNumber(String roomNumber) {
+        this.roomNumber = roomNumber;
+    }
 }

@@ -17,7 +17,7 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/img_item_photo"
+            android:id="@+id/img_item_tenant_photo"
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:layout_marginStart="8dp"
@@ -29,7 +29,7 @@
             app:srcCompat="@drawable/ic_about_24" />
 
         <TextView
-            android:id="@+id/tv_item_name"
+            android:id="@+id/tv_item_room_number"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -37,12 +37,12 @@
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/img_item_photo"
+            app:layout_constraintStart_toEndOf="@+id/img_item_tenant_photo"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="@string/tenant_name" />
 
         <TextView
-            android:id="@+id/tv_item_detail"
+            android:id="@+id/tv_item_tenant_detail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -51,8 +51,8 @@
             android:maxLines="2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/img_item_photo"
-            app:layout_constraintTop_toBottomOf="@+id/tv_item_name"
+            app:layout_constraintStart_toEndOf="@+id/img_item_tenant_photo"
+            app:layout_constraintTop_toBottomOf="@+id/tv_item_room_number"
             tools:text="@string/detail" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

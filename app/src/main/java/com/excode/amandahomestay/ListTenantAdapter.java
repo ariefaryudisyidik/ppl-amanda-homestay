@@ -14,10 +14,10 @@ import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
 
-public class Adapter extends RecyclerView.Adapter<Adapter.ListViewHolder> {
+public class ListTenantAdapter extends RecyclerView.Adapter<ListTenantAdapter.ListViewHolder> {
     private ArrayList<GetterSetter> listGetterSetter;
 
-    public Adapter(ArrayList<GetterSetter> list) {
+    public ListTenantAdapter(ArrayList<GetterSetter> list) {
         this.listGetterSetter = list;
     }
 
@@ -31,9 +31,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ListViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ListViewHolder holder, int position) {
         GetterSetter getterSetter = listGetterSetter.get(position);
-        Glide.with(holder.itemView.getContext()).load(getterSetter.getPhoto()).apply(new RequestOptions().override(55, 55)).into(holder.imgPhoto);
-        holder.tvName.setText(getterSetter.getName());
-        holder.tvDetail.setText(getterSetter.getDetail());
+        Glide.with(holder.itemView.getContext()).load(getterSetter.getTenantPhoto()).apply(new RequestOptions().override(55, 55)).into(holder.imgPhoto);
+        holder.tvName.setText(getterSetter.getTenantName());
+        holder.tvDetail.setText(getterSetter.getTenantDetail());
     }
 
     @Override
@@ -47,9 +47,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ListViewHolder> {
 
         public ListViewHolder(@NonNull View itemView) {
             super(itemView);
-            imgPhoto = itemView.findViewById(R.id.img_item_photo);
-            tvName = itemView.findViewById(R.id.tv_item_name);
-            tvDetail = itemView.findViewById(R.id.tv_item_detail);
+            imgPhoto = itemView.findViewById(R.id.img_item_tenant_photo);
+            tvName = itemView.findViewById(R.id.tv_item_room_number);
+            tvDetail = itemView.findViewById(R.id.tv_item_tenant_detail);
         }
     }
 }

@@ -21,13 +21,13 @@ public class TenantActivity extends AppCompatActivity {
         rvTenants.setHasFixedSize(true);
 
         // TenantsData
-        list.addAll(Dataset.getListData());
+        list.addAll(Dataset.getListDataTenant());
         showRecyclerList();
     }
 
     private void showRecyclerList() {
         rvTenants.setLayoutManager(new LinearLayoutManager(this));
-        Adapter adapter = new Adapter(list);
-        rvTenants.setAdapter(adapter);
+        ListTenantAdapter listTenantAdapter = new ListTenantAdapter(list);
+        rvTenants.setAdapter(listTenantAdapter);
     }
 }

@@ -4,12 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/activity_tenant"
     tools:context=".TenantActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_tenants"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_row_tenant"/>
+        tools:listitem="@layout/item_row_tenant" />
 </androidx.constraintlayout.widget.ConstraintLayout>
