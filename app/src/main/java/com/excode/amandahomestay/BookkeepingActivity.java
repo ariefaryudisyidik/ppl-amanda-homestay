@@ -29,6 +29,7 @@ public class BookkeepingActivity extends AppCompatActivity implements View.OnCli
             case R.id.btn_cancel:
                 Intent cancelIntent = new Intent(BookkeepingActivity.this, MainActivity.class);
                 startActivity(cancelIntent);
+                finish();
                 break;
         }
     }

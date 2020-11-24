@@ -91,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_about:
                 Intent aboutIntent = new Intent(MainActivity.this, AboutActivity.class);
                 startActivity(aboutIntent);
+                finish();
                 break;
             case R.id.nav_logout:
                 savePrefData();

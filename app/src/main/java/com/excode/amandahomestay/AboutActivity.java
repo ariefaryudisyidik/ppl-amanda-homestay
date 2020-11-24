@@ -58,6 +58,7 @@ public class AboutActivity extends AppCompatActivity implements NavigationView.O
             case R.id.nav_home:
                 Intent homeIntent = new Intent(AboutActivity.this, MainActivity.class);
                 startActivity(homeIntent);
+                finish();
                 break;
             case R.id.nav_about:
                 break;
