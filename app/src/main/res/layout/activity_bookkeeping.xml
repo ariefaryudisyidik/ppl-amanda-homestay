@@ -168,6 +168,7 @@
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/round_border_2"
                 android:ems="10"
+                android:focusable="false"
                 android:hint="@string/entry_date"
                 android:inputType="date"
                 android:maxLength="10"
@@ -186,6 +187,7 @@
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/round_border_2"
                 android:ems="10"
+                android:focusable="false"
                 android:hint="@string/out_date"
                 android:inputType="date"
                 android:maxLength="10"
@@ -209,22 +211,23 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edt_entry_date" />
 
-            <EditText
+            <com.cottacush.android.currencyedittext.CurrencyEditText
                 android:id="@+id/edt_cost"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/round_border_2"
-                android:ems="10"
-                android:hint="Rp. -"
                 android:inputType="numberDecimal"
-                android:maxLength="9"
+                android:maxLength="14"
                 android:padding="12dp"
                 android:textSize="14sp"
+                app:currencySymbol="Rp"
                 app:layout_constraintEnd_toStartOf="@+id/edt_out_date"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_cost" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_cost"
+                app:localeTag="id-ID"
+                app:useCurrencySymbolAsHint="true" />
 
             <Button
                 android:id="@+id/btn_save"
@@ -264,7 +267,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
