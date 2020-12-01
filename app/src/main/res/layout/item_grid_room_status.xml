@@ -6,8 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="8dp"
-    android:layout_marginRight="8dp"
     android:layout_marginTop="4dp"
+    android:layout_marginRight="8dp"
     android:layout_marginBottom="4dp"
     android:padding="17dp"
     app:cardCornerRadius="4dp">
@@ -17,7 +17,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/tv_item_room_number"
+            android:id="@+id/tv_item_tenant_name"
             android:layout_width="0dp"
             android:layout_height="99dp"
             android:gravity="center"

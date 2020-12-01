@@ -5,12 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.solver.widgets.analyzer.VerticalWidgetRun;
 import androidx.room.Room;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -56,11 +58,49 @@ public class BookkeepingActivity extends AppCompatActivity implements View.OnCli
 
         edtEntryDate.setOnClickListener(this);
         edtOutDate.setOnClickListener(this);
-        btnSave.setOnClickListener(this);
         btnCancel.setOnClickListener(this);
+
+        final Bookkeeping bookkeeping = (Bookkeeping) getIntent().getSerializableExtra("DATA");
+        //Edit
+        if (bookkeeping != null) {
+            edtTenantName.setText(bookkeeping.getNamaPenyewa());
+            edtRoomNumber.setText(bookkeeping.getNomorKamar());
+            edtPhoneNumber.setText(bookkeeping.getNomorTelepon());
+            edtEntryDate.setText(bookkeeping.getTanggalMasuk());
+            edtOutDate.setText(bookkeeping.getTanggalKeluar());
+            edtCost.setText(bookkeeping.getBiaya());
+            btnSave.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    bookkeeping.setNamaPenyewa(edtTenantName.getText().toString());
+                    bookkeeping.setNomorKamar(edtRoomNumber.getText().toString());
+                    bookkeeping.setNomorTelepon(edtPhoneNumber.getText().toString());
+                    bookkeeping.setTanggalMasuk(edtEntryDate.getText().toString());
+                    bookkeeping.setTanggalKeluar(edtOutDate.getText().toString());
+                    bookkeeping.setBiaya(edtCost.getText().toString());
+                    updateTenant(bookkeeping);
+                    getParentActivityIntent();
+                    finish();
+                }
+            });
+        } //Create
+        else {
+            btnSave.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bookkeeping bookkeeping = new Bookkeeping();
+                    bookkeeping.setNamaPenyewa(edtTenantName.getText().toString());
+                    bookkeeping.setNomorKamar(edtRoomNumber.getText().toString());
+                    bookkeeping.setNomorTelepon(edtPhoneNumber.getText().toString());
+                    bookkeeping.setTanggalMasuk(edtEntryDate.getText().toString());
+                    bookkeeping.setTanggalKeluar(edtOutDate.getText().toString());
+                    bookkeeping.setBiaya(edtCost.getText().toString());
+                    insertBookkeeping(bookkeeping);
+                    clear();
+                }
+            });
+        }
     }
-
-
 
     @Override
     public void onClick(View v) {
@@ -71,20 +111,8 @@ public class BookkeepingActivity extends AppCompatActivity implements View.OnCli
             case R.id.edt_out_date:
                 odShowDateDialog();
                 break;
-            case R.id.btn_save:
-                Bookkeeping bookkeeping = new Bookkeeping();
-                bookkeeping.setNamaPenyewa(edtTenantName.getText().toString());
-                bookkeeping.setNomorKamar(edtRoomNumber.getText().toString());
-                bookkeeping.setNomorTelepon(edtPhoneNumber.getText().toString());
-                bookkeeping.setTanggalMasuk(edtEntryDate.getText().toString());
-                bookkeeping.setTanggalKeluar(edtOutDate.getText().toString());
-                bookkeeping.setBiaya(edtCost.getText().toString());
-                insertBookkeeping(bookkeeping);
-                clear();
-                break;
             case R.id.btn_cancel:
-                Intent cancelIntent = new Intent(BookkeepingActivity.this, MainActivity.class);
-                startActivity(cancelIntent);
+                getParentActivityIntent();
                 finish();
                 break;
         }
@@ -131,6 +159,21 @@ public class BookkeepingActivity extends AppCompatActivity implements View.OnCli
             @Override
             protected void onPostExecute(Long aLong) {
                 Toast.makeText(BookkeepingActivity.this, "Data berhasil disimpan", Toast.LENGTH_SHORT).show();
+            }
+        }.execute();
+    }
+
+    private void updateTenant(Bookkeeping bookkeeping) {
+        new AsyncTask<Void, Void, Long>() {
+            @Override
+            protected Long doInBackground(Void... voids) {
+                long status = database.bookkeepingDao().updateBookkeeping(bookkeeping);
+                return status;
+            }
+
+            @Override
+            protected void onPostExecute(Long aLong) {
+                Toast.makeText(BookkeepingActivity.this, "Data berhasil diubah", Toast.LENGTH_SHORT).show();
             }
         }.execute();
     }

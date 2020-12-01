@@ -8,14 +8,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
+/*
 public class GridRoomStatusAdapter extends RecyclerView.Adapter<GridRoomStatusAdapter.GridViewHolder> {
-    private ArrayList<GetterSetter> listRoomStatus;
+    private ArrayList<Tenant> listRoomStatus;
 
-    public GridRoomStatusAdapter(ArrayList<GetterSetter> list) {
+    public GridRoomStatusAdapter(ArrayList<Tenant> list) {
         this.listRoomStatus = list;
     }
 
@@ -28,7 +27,7 @@ public class GridRoomStatusAdapter extends RecyclerView.Adapter<GridRoomStatusAd
 
     @Override
     public void onBindViewHolder(@NonNull GridViewHolder holder, int position) {
-        GetterSetter roomStatus = listRoomStatus.get(position);
+        Tenant roomStatus = listRoomStatus.get(position);
         holder.tvRoomNumber.setText(roomStatus.getRoomNumber());
     }
 
@@ -42,7 +41,9 @@ public class GridRoomStatusAdapter extends RecyclerView.Adapter<GridRoomStatusAd
 
         public GridViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvRoomNumber = itemView.findViewById(R.id.tv_item_room_number);
+            tvRoomNumber = itemView.findViewById(R.id.tv_item_tenant_name);
         }
     }
+
 }
+ */

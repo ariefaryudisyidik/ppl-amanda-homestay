@@ -2,25 +2,26 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/card_view"
+    android:id="@+id/cv_item_tenant"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="8dp"
-    android:layout_marginRight="8dp"
     android:layout_marginTop="4dp"
+    android:layout_marginRight="8dp"
     android:layout_marginBottom="4dp"
     android:padding="17dp"
     app:cardCornerRadius="4dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/round_border_2">
 
         <ImageView
             android:id="@+id/img_item_tenant_photo"
             android:layout_width="55dp"
             android:layout_height="55dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -29,7 +30,7 @@
             app:srcCompat="@drawable/ic_about_24" />
 
         <TextView
-            android:id="@+id/tv_item_room_number"
+            android:id="@+id/tv_item_tenant_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -42,18 +43,32 @@
             tools:text="@string/tenant_name" />
 
         <TextView
-            android:id="@+id/tv_item_tenant_detail"
+            android:id="@+id/tv_item_room_number"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
+            android:maxLines="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_item_tenant_photo"
+            app:layout_constraintTop_toBottomOf="@+id/tv_item_tenant_name"
+            tools:text="Nomor Kamar" />
+
+        <TextView
+            android:id="@+id/tv_item_phone_number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
             android:layout_marginBottom="8dp"
             android:maxLines="2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/img_item_tenant_photo"
             app:layout_constraintTop_toBottomOf="@+id/tv_item_room_number"
-            tools:text="@string/detail" />
+            tools:text="Nomor Telepon" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
