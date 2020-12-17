@@ -2,25 +2,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lightYellow"
+    android:background="@color/primary_light"
     android:orientation="vertical">
 
-    <android.support.design.widget.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark">
-        <android.support.v7.widget.Toolbar
+        android:background="@color/primary">
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/note_toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <include layout="@layout/layout_note_toolbar" />
 
-        </android.support.v7.widget.Toolbar>
+        </androidx.appcompat.widget.Toolbar>
 
-    </android.support.design.widget.AppBarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
-    <com.t3ch.shaj.easynotes.LineEditText
+    <com.excode.amandahomestay.note.LineEditText
         android:id="@+id/note_text"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

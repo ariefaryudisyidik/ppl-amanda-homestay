@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
     android:weightSum="100"
-    android:background="@color/colorPrimary"
+    android:background="@color/primary"
     android:gravity="center_vertical">
 
     <RelativeLayout
@@ -16,7 +16,7 @@
         <ImageButton
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/ic_arrow_back_black_24dp"
+            android:src="@drawable/ic_arrow_back_white_24dp"
             android:background="?attr/selectableItemBackground"
             android:id="@+id/toolbar_back_arrow"
             android:layout_centerInParent="true"
@@ -35,7 +35,7 @@
         <ImageButton
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/ic_check_black_24dp"
+            android:src="@drawable/ic_check_white_24dp"
             android:background="?attr/selectableItemBackground"
             android:id="@+id/toolbar_check"
             android:layout_centerInParent="true" />
@@ -48,7 +48,7 @@
         android:layout_weight="85"
         android:id="@+id/note_text_title"
         android:text="title of note"
-        android:textColor="#000"
+        android:textColor="@color/white"
         android:layout_marginStart="15dp"
         android:textSize="23sp"
         android:visibility="visible"/>
