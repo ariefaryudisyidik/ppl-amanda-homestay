@@ -1,16 +1,17 @@
 package com.excode.amandahomestay.note.adapters;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.t3ch.shaj.easynotes.R;
-import com.t3ch.shaj.easynotes.models.Note;
-import com.t3ch.shaj.easynotes.util.Utility;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.excode.amandahomestay.R;
+import com.excode.amandahomestay.note.models.Note;
+import com.excode.amandahomestay.note.util.Utility;
 
 import java.util.ArrayList;
 

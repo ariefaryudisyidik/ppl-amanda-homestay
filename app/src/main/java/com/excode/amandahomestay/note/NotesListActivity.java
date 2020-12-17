@@ -1,21 +1,24 @@
 package com.excode.amandahomestay.note;
 
-import android.arch.lifecycle.Observer;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.View;
 
-import com.t3ch.shaj.easynotes.adapters.NotesRecyclerAdapter;
-import com.t3ch.shaj.easynotes.models.Note;
-import com.t3ch.shaj.easynotes.persistence.NoteRepository;
-import com.t3ch.shaj.easynotes.util.VerticalSpacingItemDecorator;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.Observer;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.excode.amandahomestay.R;
+import com.excode.amandahomestay.note.adapters.NotesRecyclerAdapter;
+import com.excode.amandahomestay.note.models.Note;
+import com.excode.amandahomestay.note.persistence.NoteRepository;
+import com.excode.amandahomestay.note.util.VerticalSpacingItemDecorator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -109,7 +112,7 @@ public class NotesListActivity extends AppCompatActivity implements
         Log.d(TAG, "onNoteClick: clicked " + position);
 
 
-        Intent intent = new Intent(this, com.t3ch.shaj.easynotes.NoteActivity.class);
+        Intent intent = new Intent(this, NoteActivity.class);
 
         intent.putExtra("selected_note", mNotes.get(position));
 
@@ -121,7 +124,7 @@ public class NotesListActivity extends AppCompatActivity implements
 
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent(this, com.t3ch.shaj.easynotes.NoteActivity.class);
+        Intent intent = new Intent(this, NoteActivity.class);
         startActivity(intent);
 
     }
