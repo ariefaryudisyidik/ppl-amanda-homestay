@@ -1,14 +1,16 @@
 package com.excode.amandahomestay.note.persistence;
 
-import android.arch.lifecycle.LiveData;
 import android.content.Context;
 
-import com.t3ch.shaj.easynotes.async.DeleteAsyncTask;
-import com.t3ch.shaj.easynotes.async.InsertAsyncTask;
-import com.t3ch.shaj.easynotes.async.UpdateAsyncTask;
-import com.t3ch.shaj.easynotes.models.Note;
+import androidx.lifecycle.LiveData;
+
+import com.excode.amandahomestay.note.async.DeleteAsyncTask;
+import com.excode.amandahomestay.note.async.InsertAsyncTask;
+import com.excode.amandahomestay.note.async.UpdateAsyncTask;
+import com.excode.amandahomestay.note.models.Note;
 
 import java.util.List;
+
 
 /**
  * Created by Shakil Ahmed Shaj on 27-Apr-19.

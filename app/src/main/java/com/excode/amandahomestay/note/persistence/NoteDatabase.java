@@ -1,11 +1,13 @@
 package com.excode.amandahomestay.note.persistence;
 
-import android.arch.persistence.room.Database;
-import android.arch.persistence.room.Room;
-import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
-import com.t3ch.shaj.easynotes.models.Note;
+import androidx.room.Database;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
+
+import com.excode.amandahomestay.note.models.Note;
+
 
 /**
  * Created by Shakil Ahmed Shaj on 27-Apr-19.

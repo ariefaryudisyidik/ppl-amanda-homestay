@@ -3,8 +3,8 @@ package com.excode.amandahomestay.note.async;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.t3ch.shaj.easynotes.models.Note;
-import com.t3ch.shaj.easynotes.persistence.NoteDao;
+import com.excode.amandahomestay.note.models.Note;
+import com.excode.amandahomestay.note.persistence.NoteDao;
 
 /**
  * Created by Shakil Ahmed Shaj on 28-Apr-19.
