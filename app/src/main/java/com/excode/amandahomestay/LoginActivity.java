@@ -19,6 +19,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     EditText edtUsername, edtPassword;
     Button btnLogin;
 
+    private long exitTime = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,5 +81,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         return alreadyLogin;
     }
 
-
+    @Override
+    public void onBackPressed() {
+        if ((System.currentTimeMillis() - exitTime) > 2000) {
+            Toast.makeText(this, "Press again to exit", Toast.LENGTH_SHORT).show();
+            exitTime = System.currentTimeMillis();
+        } else {
+            finishActivity(0);
+            super.onBackPressed();
+        }
+    }
 }
