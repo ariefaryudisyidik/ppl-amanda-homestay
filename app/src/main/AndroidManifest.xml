@@ -10,6 +10,11 @@
         android:roundIcon="@mipmap/ic_launcher_amanda_homestay"
         android:supportsRtl="true"
         android:theme="@style/Theme.AmandaHomestay.Light">
+        <activity android:name=".note.NoteActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".note.NotesListActivity"
+            android:theme="@style/Theme.AmandaHomestay.Light.NoActionBar"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".AboutActivity"
             android:label=""

@@ -2,7 +2,6 @@ package com.excode.amandahomestay.note;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -15,9 +14,13 @@ import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.t3ch.shaj.easynotes.models.Note;
-import com.t3ch.shaj.easynotes.persistence.NoteRepository;
-import com.t3ch.shaj.easynotes.util.Utility;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.excode.amandahomestay.R;
+import com.excode.amandahomestay.note.models.Note;
+import com.excode.amandahomestay.note.persistence.NoteRepository;
+import com.excode.amandahomestay.note.util.Utility;
+
 
 public class NoteActivity extends AppCompatActivity implements
         View.OnTouchListener, GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener, View.OnClickListener, TextWatcher {

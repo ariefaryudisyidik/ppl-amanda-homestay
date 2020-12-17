@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.excode.amandahomestay.note.NotesListActivity;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -139,6 +140,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.cv_booking:
                 break;
             case R.id.cv_note:
+                startActivity(new Intent(MainActivity.this, NotesListActivity.class));
                 break;
         }
     }

@@ -4,9 +4,10 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.support.v7.widget.AppCompatEditText;
 import android.util.AttributeSet;
 import android.view.View;
+
+import androidx.appcompat.widget.AppCompatEditText;
 
 /**
  * Created by Shakil Ahmed Shaj on 17-Apr-19.

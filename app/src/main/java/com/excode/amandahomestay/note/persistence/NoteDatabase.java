@@ -14,7 +14,7 @@ import com.excode.amandahomestay.note.models.Note;
  * shakilahmedshaj@gmail.com
  */
 
-@Database(entities = {Note.class}, version = 1)
+@Database(entities = {Note.class}, version = 2)
 public abstract class NoteDatabase extends RoomDatabase {
 
     public static final String DATABASE_NAME = "notes_db";
@@ -27,7 +27,7 @@ public abstract class NoteDatabase extends RoomDatabase {
                     context.getApplicationContext(),
                     NoteDatabase.class,
                     DATABASE_NAME
-            ).build();
+            ).fallbackToDestructiveMigration().build();
         }
         return instance;
     }
