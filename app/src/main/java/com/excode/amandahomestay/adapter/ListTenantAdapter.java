@@ -54,8 +54,8 @@ public class ListTenantAdapter extends RecyclerView.Adapter<ListTenantAdapter.Li
         final String roomNumber = listTenant.get(position).getNomorKamar();
         final String phoneNumber = listTenant.get(position).getNomorTelepon();
         holder.tvItemTenantName.setText(tenantName);
-        holder.tvItemRoomNumber.setText("Nomor Kamar: " + roomNumber);
-        holder.tvItemPhoneNumber.setText("Nomor Telepon: " + phoneNumber);
+        holder.tvItemRoomNumber.setText("Nomor Kamar\t\t: " + roomNumber);
+        holder.tvItemPhoneNumber.setText("Nomor Telepon\t: " + phoneNumber);
         holder.imgItemTenant.setImageResource(R.drawable.ic_tenant_data);
     }
 
@@ -112,6 +112,9 @@ public class ListTenantAdapter extends RecyclerView.Adapter<ListTenantAdapter.Li
         notifyItemRemoved(position);
         notifyItemRangeRemoved(position, listTenant.size());
         Toast.makeText(context, "Data telah dihapus", Toast.LENGTH_SHORT).show();
+        if (listTenant.isEmpty()) {
+            Toast.makeText(context, "Data habis", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }
