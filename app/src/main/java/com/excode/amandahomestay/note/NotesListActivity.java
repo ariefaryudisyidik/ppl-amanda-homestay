@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 
 import androidx.annotation.Nullable;
@@ -17,10 +19,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.excode.amandahomestay.R;
 import com.excode.amandahomestay.note.adapters.NotesRecyclerAdapter;
 import com.excode.amandahomestay.note.models.Note;
+import com.excode.amandahomestay.note.persistence.NoteDao;
+import com.excode.amandahomestay.note.persistence.NoteDao_Impl;
+import com.excode.amandahomestay.note.persistence.NoteDatabase;
+import com.excode.amandahomestay.note.persistence.NoteDatabase_Impl;
 import com.excode.amandahomestay.note.persistence.NoteRepository;
 import com.excode.amandahomestay.note.util.VerticalSpacingItemDecorator;
 
+import java.io.NotActiveException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class NotesListActivity extends AppCompatActivity implements
@@ -30,6 +38,7 @@ public class NotesListActivity extends AppCompatActivity implements
     private static final String TAG = "NotesListActivity";
 
     //UI Components
+    private ImageView ivBgNotFound2;
     private RecyclerView mRecyclerView;
 
     //vars
@@ -42,20 +51,20 @@ public class NotesListActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes_list);
 
+        ivBgNotFound2 = findViewById(R.id.iv_bg_not_found2);
         mRecyclerView = findViewById(R.id.recyclerView);
+
 
         findViewById(R.id.fab).setOnClickListener(this);
 
         mNoteRepository = new NoteRepository(this);
-
+        
         initRecyclerView();
         retrieveNotes();
         //insertFakeNotes();
         //Log.d(TAG, "onCreate: thread: " + Thread.currentThread().getName());
         //setSupportActionBar((Toolbar) findViewById(R.id.notes_toolbar));
         //setTitle("Notes");
-
-
     }
 
     private void retrieveNotes() {
@@ -63,8 +72,6 @@ public class NotesListActivity extends AppCompatActivity implements
         mNoteRepository.retrieveNotesTask().observe(this, new Observer<List<Note>>() {
             @Override
             public void onChanged(@Nullable List<Note> notes) {
-
-
                 if (mNotes.size() > 0) {
                     mNotes.clear();
                 }
@@ -73,12 +80,19 @@ public class NotesListActivity extends AppCompatActivity implements
                 }
                 mNoteRecyclerAdapter.notifyDataSetChanged();
 
+                if (mNotes.isEmpty()) {
+                    mRecyclerView.setVisibility(View.GONE);
+                    ivBgNotFound2.setVisibility(View.VISIBLE);
+                } else {
+                    mRecyclerView.setVisibility(View.VISIBLE);
+                    ivBgNotFound2.setVisibility(View.GONE);
+                }
             }
         });
 
     }
 
-
+/*
     private void insertFakeNotes() {
         for (int i = 0; i < 1000; i++) {
             Note note = new Note();
@@ -89,6 +103,7 @@ public class NotesListActivity extends AppCompatActivity implements
         }
         mNoteRecyclerAdapter.notifyDataSetChanged();
     }
+ */
 
     private void initRecyclerView() {
 
