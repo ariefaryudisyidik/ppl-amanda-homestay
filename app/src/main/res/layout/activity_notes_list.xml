@@ -6,20 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".note.NotesListActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/notes_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|enterAlways" />
-
-    </com.google.android.material.appbar.AppBarLayout>
-
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

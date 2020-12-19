@@ -48,6 +48,7 @@ public class AboutActivity extends AppCompatActivity implements NavigationView.O
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
         } else {
+            startActivity(new Intent(AboutActivity.this, MainActivity.class));
             super.onBackPressed();
         }
     }

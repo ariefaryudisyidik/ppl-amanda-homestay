@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.excode.amandahomestay">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_amanda_homestay"
@@ -10,11 +10,16 @@
         android:roundIcon="@mipmap/ic_launcher_amanda_homestay"
         android:supportsRtl="true"
         android:theme="@style/Theme.AmandaHomestay.Light">
-        <activity android:name=".note.NoteActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".note.NotesListActivity"
-            android:theme="@style/Theme.AmandaHomestay.Light.NoActionBar"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".note.NoteActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AmandaHomestay.Light.NoActionBar"/>
+        <activity
+            android:name=".note.NotesListActivity"
+            android:label="Catatan"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AmandaHomestay.Light" />
         <activity
             android:name=".AboutActivity"
             android:label=""
@@ -23,8 +28,8 @@
         <activity
             android:name=".BookkeepingActivity"
             android:label="Pembukuan"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".RoomStatusActivity"
             android:label="Status Kamar"

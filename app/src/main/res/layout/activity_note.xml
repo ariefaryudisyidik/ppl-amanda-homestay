@@ -2,23 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary_light"
+    android:background="@color/grey"
     android:orientation="vertical">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/primary">
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/note_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <include layout="@layout/layout_note_toolbar" />
-
-        </androidx.appcompat.widget.Toolbar>
-
-    </com.google.android.material.appbar.AppBarLayout>
+    <include layout="@layout/layout_note_toolbar" />
 
     <com.excode.amandahomestay.note.LineEditText
         android:id="@+id/note_text"
@@ -28,6 +15,6 @@
         android:imeOptions="flagNoExtractUi"
         android:padding="5dp"
         android:textColor="#000"
-        android:textSize="23sp" />
+        android:textSize="19sp" />
 
 </LinearLayout>

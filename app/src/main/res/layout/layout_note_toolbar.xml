@@ -43,28 +43,29 @@
     </RelativeLayout>
 
     <TextView
+        android:id="@+id/note_text_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
         android:layout_weight="85"
-        android:id="@+id/note_text_title"
         android:text="title of note"
         android:textColor="@color/white"
-        android:layout_marginStart="15dp"
-        android:textSize="23sp"
-        android:visibility="visible"/>
+        android:textSize="21sp"
+        android:textStyle="bold"
+        android:visibility="visible" />
 
     <EditText
+        android:id="@+id/note_edit_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="85"
-        android:id="@+id/note_edit_title"
-        android:text="title of note"
-        android:textColor="#000"
         android:layout_marginStart="15dp"
-        android:textSize="23sp"
+        android:layout_weight="85"
         android:background="#fff"
         android:padding="2dp"
-        android:visibility="gone"/>
+        android:text="title of note"
+        android:textColor="#000"
+        android:textSize="21sp"
+        android:visibility="gone" />
 
 
 </LinearLayout>

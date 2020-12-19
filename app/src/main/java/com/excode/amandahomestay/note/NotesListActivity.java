@@ -51,9 +51,9 @@ public class NotesListActivity extends AppCompatActivity implements
         initRecyclerView();
         retrieveNotes();
         //insertFakeNotes();
-        Log.d(TAG, "onCreate: thread: " + Thread.currentThread().getName());
-        setSupportActionBar((Toolbar) findViewById(R.id.notes_toolbar));
-        setTitle("Notes");
+        //Log.d(TAG, "onCreate: thread: " + Thread.currentThread().getName());
+        //setSupportActionBar((Toolbar) findViewById(R.id.notes_toolbar));
+        //setTitle("Notes");
 
 
     }

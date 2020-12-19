@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,7 +32,6 @@ public class ListTenantAdapter extends RecyclerView.Adapter<ListTenantAdapter.Li
     private ArrayList<Bookkeeping> listTenant;
     private Context context;
     private BookkeepingDatabase database;
-
 
     public ListTenantAdapter(ArrayList<Bookkeeping> list, Context context) {
         this.listTenant = list;
@@ -66,8 +66,9 @@ public class ListTenantAdapter extends RecyclerView.Adapter<ListTenantAdapter.Li
 
     public class ListViewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener, MenuItem.OnMenuItemClickListener {
         CardView cvItemtenant;
-        ImageView imgItemTenant;
+        ImageView imgItemTenant, ivBgNotFound;
         TextView tvItemTenantName, tvItemRoomNumber, tvItemPhoneNumber;
+        Button btnAddData;
 
         public ListViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -77,13 +78,16 @@ public class ListTenantAdapter extends RecyclerView.Adapter<ListTenantAdapter.Li
             tvItemRoomNumber = itemView.findViewById(R.id.tv_item_room_number);
             tvItemPhoneNumber = itemView.findViewById(R.id.tv_item_phone_number);
 
+            ivBgNotFound = itemView.findViewById(R.id.iv_bg_not_found);
+            btnAddData = itemView.findViewById(R.id.btn_add_data);
+
             itemView.setOnCreateContextMenuListener(this);
         }
 
         @Override
         public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-            MenuItem edit = menu.add(Menu.NONE,1,1,"Edit");
-            MenuItem delete = menu.add(Menu.NONE,2,2,"Delete");
+            MenuItem edit = menu.add(Menu.NONE, 1, 1, "Edit");
+            MenuItem delete = menu.add(Menu.NONE, 2, 2, "Delete");
 
             edit.setOnMenuItemClickListener(this);
             delete.setOnMenuItemClickListener(this);
@@ -112,9 +116,5 @@ public class ListTenantAdapter extends RecyclerView.Adapter<ListTenantAdapter.Li
         notifyItemRemoved(position);
         notifyItemRangeRemoved(position, listTenant.size());
         Toast.makeText(context, "Data telah dihapus", Toast.LENGTH_SHORT).show();
-        if (listTenant.isEmpty()) {
-            Toast.makeText(context, "Data habis", Toast.LENGTH_SHORT).show();
-        }
     }
-
 }
