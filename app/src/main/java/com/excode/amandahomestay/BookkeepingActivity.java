@@ -44,7 +44,7 @@ public class BookkeepingActivity extends AppCompatActivity implements View.OnCli
         setContentView(R.layout.activity_bookkeeping);
 
         database = Room.databaseBuilder(getApplicationContext(),
-                BookkeepingDatabase.class, "dbbookkeeping").build();
+                BookkeepingDatabase.class, "bookkeeping_db").build();
 
 
         edtTenantName = findViewById(R.id.edt_tenant_name);

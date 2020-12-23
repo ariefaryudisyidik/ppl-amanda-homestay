@@ -1,5 +1,6 @@
 package com.excode.amandahomestay.database;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -9,10 +10,12 @@ import androidx.room.Update;
 
 import com.excode.amandahomestay.model.Bookkeeping;
 
+import java.util.List;
+
 @Dao
 public interface BookkeepingDao {
     @Query("SELECT * FROM bookkeeping")
-    Bookkeeping[] selectAllBookkeepings();
+    LiveData<List<Bookkeeping>> selectAllBookkeepings();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     long insertBookkeeping(Bookkeeping bookkeeping);

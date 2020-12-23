@@ -38,7 +38,7 @@ public class ListTenantAdapter extends RecyclerView.Adapter<ListTenantAdapter.Li
         this.context = context;
 
         database = Room.databaseBuilder(context.getApplicationContext(),
-                BookkeepingDatabase.class, "dbbookkeeping").allowMainThreadQueries().build();
+                BookkeepingDatabase.class, "bookkeeping_db").allowMainThreadQueries().build();
     }
 
     @NonNull

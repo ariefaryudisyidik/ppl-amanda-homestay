@@ -12,10 +12,6 @@ import com.excode.amandahomestay.note.models.Note;
 import java.util.List;
 
 
-/**
- * Created by Shakil Ahmed Shaj on 27-Apr-19.
- * shakilahmedshaj@gmail.com
- */
 public class NoteRepository {
 
     private NoteDatabase mNoteDatabase;

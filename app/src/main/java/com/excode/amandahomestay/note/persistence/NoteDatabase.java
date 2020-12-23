@@ -9,11 +9,6 @@ import androidx.room.RoomDatabase;
 import com.excode.amandahomestay.note.models.Note;
 
 
-/**
- * Created by Shakil Ahmed Shaj on 27-Apr-19.
- * shakilahmedshaj@gmail.com
- */
-
 @Database(entities = {Note.class}, version = 1)
 public abstract class NoteDatabase extends RoomDatabase {
 
