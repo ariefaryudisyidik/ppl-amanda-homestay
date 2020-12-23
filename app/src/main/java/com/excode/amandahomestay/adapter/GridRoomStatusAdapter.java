@@ -1,4 +1,4 @@
-package com.excode.amandahomestay;
+package com.excode.amandahomestay.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-/*
+
 public class GridRoomStatusAdapter extends RecyclerView.Adapter<GridRoomStatusAdapter.GridViewHolder> {
     private ArrayList<Tenant> listRoomStatus;
 
@@ -46,4 +46,4 @@ public class GridRoomStatusAdapter extends RecyclerView.Adapter<GridRoomStatusAd
     }
 
 }
- */
+
