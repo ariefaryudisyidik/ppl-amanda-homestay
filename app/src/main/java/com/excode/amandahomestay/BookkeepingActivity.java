@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
@@ -82,15 +83,48 @@ public class BookkeepingActivity extends AppCompatActivity implements View.OnCli
             btnSave.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    bookkeeping.setNamaPenyewa(edtTenantName.getText().toString());
-                    bookkeeping.setNomorKamar(edtRoomNumber.getText().toString());
-                    bookkeeping.setNomorTelepon(edtPhoneNumber.getText().toString());
-                    bookkeeping.setTanggalMasuk(edtEntryDate.getText().toString());
-                    bookkeeping.setTanggalKeluar(edtOutDate.getText().toString());
-                    bookkeeping.setBiaya(edtCost.getText().toString());
-                    updateTenant(bookkeeping);
-                    startActivity(new Intent(BookkeepingActivity.this, TenantActivity.class));
-                    finish();
+                    Boolean isEmptyFields = false;
+                    String inputTenantName = edtTenantName.getText().toString().trim();
+                    String inputRoomNumber = edtRoomNumber.getText().toString().trim();
+                    String inputPhoneNumber = edtPhoneNumber.getText().toString().trim();
+                    String inputEntryDate = edtEntryDate.getText().toString().trim();
+                    String inputOutDate = edtOutDate.getText().toString().trim();
+                    String inputCost = edtCost.getText().toString().trim();
+
+                    if (TextUtils.isEmpty(inputTenantName)) {
+                        isEmptyFields = true;
+                        edtTenantName.setError("Field ini tidak boleh kosong");
+                    }
+                    if (TextUtils.isEmpty(inputRoomNumber)) {
+                        isEmptyFields = true;
+                        edtRoomNumber.setError("Field ini tidak boleh kosong");
+                    }
+                    if (TextUtils.isEmpty(inputPhoneNumber)) {
+                        isEmptyFields = true;
+                        edtPhoneNumber.setError("Field ini tidak boleh kosong");
+                    }
+                    if (TextUtils.isEmpty(inputEntryDate)) {
+                        isEmptyFields = true;
+                    }
+                    if (TextUtils.isEmpty(inputOutDate)) {
+                        isEmptyFields = true;
+                    }
+                    if (TextUtils.isEmpty(inputCost)) {
+                        isEmptyFields = true;
+                        edtCost.setError("Field ini tidak boleh kosong");
+                    }
+
+                    if (!isEmptyFields) {
+                        bookkeeping.setNamaPenyewa(edtTenantName.getText().toString());
+                        bookkeeping.setNomorKamar(edtRoomNumber.getText().toString());
+                        bookkeeping.setNomorTelepon(edtPhoneNumber.getText().toString());
+                        bookkeeping.setTanggalMasuk(edtEntryDate.getText().toString());
+                        bookkeeping.setTanggalKeluar(edtOutDate.getText().toString());
+                        bookkeeping.setBiaya(edtCost.getText().toString());
+                        updateTenant(bookkeeping);
+                        startActivity(new Intent(BookkeepingActivity.this, TenantActivity.class));
+                        finish();
+                    }
                 }
             });
             btnCancel.setOnClickListener(new View.OnClickListener() {
@@ -110,15 +144,48 @@ public class BookkeepingActivity extends AppCompatActivity implements View.OnCli
             btnSave.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    booking.setNamaPenyewa(edtTenantName.getText().toString());
-                    booking.setNomorKamar(edtRoomNumber.getText().toString());
-                    booking.setNomorTelepon(edtPhoneNumber.getText().toString());
-                    booking.setTanggalMasuk(edtEntryDate.getText().toString());
-                    booking.setTanggalKeluar(edtOutDate.getText().toString());
-                    booking.setBiaya(edtCost.getText().toString());
-                    updateBooking(booking);
-                    startActivity(new Intent(BookkeepingActivity.this, BookingActivity.class));
-                    finish();
+                    Boolean isEmptyFields = false;
+                    String inputTenantName = edtTenantName.getText().toString().trim();
+                    String inputRoomNumber = edtRoomNumber.getText().toString().trim();
+                    String inputPhoneNumber = edtPhoneNumber.getText().toString().trim();
+                    String inputEntryDate = edtEntryDate.getText().toString().trim();
+                    String inputOutDate = edtOutDate.getText().toString().trim();
+                    String inputCost = edtCost.getText().toString().trim();
+
+                    if (TextUtils.isEmpty(inputTenantName)) {
+                        isEmptyFields = true;
+                        edtTenantName.setError("Field ini tidak boleh kosong");
+                    }
+                    if (TextUtils.isEmpty(inputRoomNumber)) {
+                        isEmptyFields = true;
+                        edtRoomNumber.setError("Field ini tidak boleh kosong");
+                    }
+                    if (TextUtils.isEmpty(inputPhoneNumber)) {
+                        isEmptyFields = true;
+                        edtPhoneNumber.setError("Field ini tidak boleh kosong");
+                    }
+                    if (TextUtils.isEmpty(inputEntryDate)) {
+                        isEmptyFields = true;
+                    }
+                    if (TextUtils.isEmpty(inputOutDate)) {
+                        isEmptyFields = true;
+                    }
+                    if (TextUtils.isEmpty(inputCost)) {
+                        isEmptyFields = true;
+                        edtCost.setError("Field ini tidak boleh kosong");
+                    }
+
+                    if (!isEmptyFields) {
+                        booking.setNamaPenyewa(edtTenantName.getText().toString());
+                        booking.setNomorKamar(edtRoomNumber.getText().toString());
+                        booking.setNomorTelepon(edtPhoneNumber.getText().toString());
+                        booking.setTanggalMasuk(edtEntryDate.getText().toString());
+                        booking.setTanggalKeluar(edtOutDate.getText().toString());
+                        booking.setBiaya(edtCost.getText().toString());
+                        updateBooking(booking);
+                        startActivity(new Intent(BookkeepingActivity.this, BookingActivity.class));
+                        finish();
+                    }
                 }
             });
             btnCancel.setOnClickListener(new View.OnClickListener() {
@@ -140,30 +207,94 @@ public class BookkeepingActivity extends AppCompatActivity implements View.OnCli
                     btnTenant.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Bookkeeping bookkeeping = new Bookkeeping();
-                            bookkeeping.setNamaPenyewa(edtTenantName.getText().toString());
-                            bookkeeping.setNomorKamar(edtRoomNumber.getText().toString());
-                            bookkeeping.setNomorTelepon(edtPhoneNumber.getText().toString());
-                            bookkeeping.setTanggalMasuk(edtEntryDate.getText().toString());
-                            bookkeeping.setTanggalKeluar(edtOutDate.getText().toString());
-                            bookkeeping.setBiaya(edtCost.getText().toString());
-                            insertBookkeeping(bookkeeping);
-                            clear();
+                            Boolean isEmptyFields = false;
+                            String inputTenantName = edtTenantName.getText().toString().trim();
+                            String inputRoomNumber = edtRoomNumber.getText().toString().trim();
+                            String inputPhoneNumber = edtPhoneNumber.getText().toString().trim();
+                            String inputEntryDate = edtEntryDate.getText().toString().trim();
+                            String inputOutDate = edtOutDate.getText().toString().trim();
+                            String inputCost = edtCost.getText().toString().trim();
+
+                            if (TextUtils.isEmpty(inputTenantName)) {
+                                isEmptyFields = true;
+                                edtTenantName.setError("Field ini tidak boleh kosong");
+                            }
+                            if (TextUtils.isEmpty(inputRoomNumber)) {
+                                isEmptyFields = true;
+                                edtRoomNumber.setError("Field ini tidak boleh kosong");
+                            }
+                            if (TextUtils.isEmpty(inputPhoneNumber)) {
+                                isEmptyFields = true;
+                                edtPhoneNumber.setError("Field ini tidak boleh kosong");
+                            }
+                            if (TextUtils.isEmpty(inputEntryDate)) {
+                                isEmptyFields = true;
+                            }
+                            if (TextUtils.isEmpty(inputOutDate)) {
+                                isEmptyFields = true;
+                            }
+                            if (TextUtils.isEmpty(inputCost)) {
+                                isEmptyFields = true;
+                                edtCost.setError("Field ini tidak boleh kosong");
+                            }
+                            if (!isEmptyFields) {
+                                Bookkeeping bookkeeping = new Bookkeeping();
+                                bookkeeping.setNamaPenyewa(edtTenantName.getText().toString());
+                                bookkeeping.setNomorKamar(edtRoomNumber.getText().toString());
+                                bookkeeping.setNomorTelepon(edtPhoneNumber.getText().toString());
+                                bookkeeping.setTanggalMasuk(edtEntryDate.getText().toString());
+                                bookkeeping.setTanggalKeluar(edtOutDate.getText().toString());
+                                bookkeeping.setBiaya(edtCost.getText().toString());
+                                insertBookkeeping(bookkeeping);
+                                clear();
+                            }
                         }
                     });
 
                     btnBooking.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Booking booking = new Booking();
-                            booking.setNamaPenyewa(edtTenantName.getText().toString());
-                            booking.setNomorKamar(edtRoomNumber.getText().toString());
-                            booking.setNomorTelepon(edtPhoneNumber.getText().toString());
-                            booking.setTanggalMasuk(edtEntryDate.getText().toString());
-                            booking.setTanggalKeluar(edtOutDate.getText().toString());
-                            booking.setBiaya(edtCost.getText().toString());
-                            insertBooking(booking);
-                            clear();
+                            Boolean isEmptyFields = false;
+                            String inputTenantName = edtTenantName.getText().toString().trim();
+                            String inputRoomNumber = edtRoomNumber.getText().toString().trim();
+                            String inputPhoneNumber = edtPhoneNumber.getText().toString().trim();
+                            String inputEntryDate = edtEntryDate.getText().toString().trim();
+                            String inputOutDate = edtOutDate.getText().toString().trim();
+                            String inputCost = edtCost.getText().toString().trim();
+
+                            if (TextUtils.isEmpty(inputTenantName)) {
+                                isEmptyFields = true;
+                                edtTenantName.setError("Field ini tidak boleh kosong");
+                            }
+                            if (TextUtils.isEmpty(inputRoomNumber)) {
+                                isEmptyFields = true;
+                                edtRoomNumber.setError("Field ini tidak boleh kosong");
+                            }
+                            if (TextUtils.isEmpty(inputPhoneNumber)) {
+                                isEmptyFields = true;
+                                edtTenantName.setError("Field ini tidak boleh kosong");
+                            }
+                            if (TextUtils.isEmpty(inputEntryDate)) {
+                                isEmptyFields = true;
+                            }
+                            if (TextUtils.isEmpty(inputOutDate)) {
+                                isEmptyFields = true;
+                            }
+                            if (TextUtils.isEmpty(inputCost)) {
+                                isEmptyFields = true;
+                                edtCost.setError("Field ini tidak boleh kosong");
+                            }
+                            if (!isEmptyFields) {
+                                Booking booking = new Booking();
+                                booking.setNamaPenyewa(edtTenantName.getText().toString());
+                                booking.setNomorKamar(edtRoomNumber.getText().toString());
+                                booking.setNomorTelepon(edtPhoneNumber.getText().toString());
+                                booking.setTanggalMasuk(edtEntryDate.getText().toString());
+                                booking.setTanggalKeluar(edtOutDate.getText().toString());
+                                booking.setBiaya(edtCost.getText().toString());
+                                insertBooking(booking);
+                                clear();
+                            }
                         }
                     });
                 }

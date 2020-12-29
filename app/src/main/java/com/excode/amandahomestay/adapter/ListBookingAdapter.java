@@ -51,9 +51,11 @@ public class ListBookingAdapter extends RecyclerView.Adapter<ListBookingAdapter.
         final String bookingName = listBooking.get(position).getNamaPenyewa();
         final String roomNumber = listBooking.get(position).getNomorKamar();
         final String phoneNumber = listBooking.get(position).getNomorTelepon();
+        final String bookingDate = listBooking.get(position).getTanggalMasuk();
         holder.tvItemBookingName.setText(bookingName);
         holder.tvItemRoomNumber.setText("Nomor Kamar\t\t: " + roomNumber);
         holder.tvItemPhoneNumber.setText("Nomor Telepon\t: " + phoneNumber);
+        holder.tvItemBookingDate.setText("Booked\n"+bookingDate);
         holder.imgItemBooking.setImageResource(R.drawable.ic_booking);
     }
 
@@ -65,7 +67,7 @@ public class ListBookingAdapter extends RecyclerView.Adapter<ListBookingAdapter.
     public class ListViewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener, MenuItem.OnMenuItemClickListener {
         CardView cvItemBooking;
         ImageView imgItemBooking, ivBgNotFound;
-        TextView tvItemBookingName, tvItemRoomNumber, tvItemPhoneNumber;
+        TextView tvItemBookingName, tvItemRoomNumber, tvItemPhoneNumber, tvItemBookingDate;
         Button btnAddData;
 
         public ListViewHolder(@NonNull View itemView) {
@@ -75,6 +77,7 @@ public class ListBookingAdapter extends RecyclerView.Adapter<ListBookingAdapter.
             tvItemBookingName = itemView.findViewById(R.id.tv_item_booking_name);
             tvItemRoomNumber = itemView.findViewById(R.id.tv_item_room_number);
             tvItemPhoneNumber = itemView.findViewById(R.id.tv_item_phone_number);
+            tvItemBookingDate = itemView.findViewById(R.id.tv_item_booking_date);
 
             ivBgNotFound = itemView.findViewById(R.id.iv_bg_not_found);
             btnAddData = itemView.findViewById(R.id.btn_add_data);
