@@ -25,5 +25,9 @@
     <string name="save">Simpan</string>
     <string name="cancel">Batal</string>
 
-    <string name="addres">Jln Dr Sutomo Gg Mushola Kedaton Bandar Lampung</string>
+    <string name="addres">Jl. Dr Sutomo Gg Mushola\nKedaton Bandar Lampung</string>
+    <string name="owner_addres">Jl. Drs Warito No.28 Kupang Teluk Betung Utara</string>
+    <string name="owner_phone">081806190000 / 082375511016</string>
+
+
 </resources>
