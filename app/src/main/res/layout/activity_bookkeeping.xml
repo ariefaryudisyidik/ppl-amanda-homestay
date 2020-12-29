@@ -244,7 +244,42 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/btn_cancel"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edt_cost" />
+                app:layout_constraintTop_toBottomOf="@+id/edt_cost"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <Button
+                android:id="@+id/btn_tenant"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="81dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="16dp"
+                android:text="Data Penyewa"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edt_cost"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <Button
+                android:id="@+id/btn_booking"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="81dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="16dp"
+                android:text="Booking"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btn_tenant"
+                app:layout_constraintTop_toBottomOf="@+id/edt_cost"
+                app:layout_constraintVertical_bias="0.0" />
 
             <Button
                 android:id="@+id/btn_cancel"
