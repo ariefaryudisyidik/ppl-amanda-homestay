@@ -21,58 +21,58 @@ import androidx.room.Room;
 
 import com.excode.amandahomestay.BookkeepingActivity;
 import com.excode.amandahomestay.R;
-import com.excode.amandahomestay.database.BookkeepingDatabase;
-import com.excode.amandahomestay.model.Bookkeeping;
+import com.excode.amandahomestay.database.BookingDatabase;
+import com.excode.amandahomestay.model.Booking;
 
 import java.util.ArrayList;
 
-public class ListTenantAdapter extends RecyclerView.Adapter<ListTenantAdapter.ListViewHolder> {
-    private ArrayList<Bookkeeping> listTenant;
+public class ListBookingAdapter extends RecyclerView.Adapter<ListBookingAdapter.ListViewHolder> {
+    private ArrayList<Booking> listBooking;
     private Context context;
-    private BookkeepingDatabase database;
+    private BookingDatabase database;
 
-    public ListTenantAdapter(ArrayList<Bookkeeping> list, Context context) {
-        this.listTenant = list;
+    public ListBookingAdapter(ArrayList<Booking> list, Context context) {
+        this.listBooking = list;
         this.context = context;
 
         database = Room.databaseBuilder(context.getApplicationContext(),
-                BookkeepingDatabase.class, "bookkeeping_db").allowMainThreadQueries().build();
+                BookingDatabase.class, "booking_db").allowMainThreadQueries().build();
     }
 
     @NonNull
     @Override
-    public ListTenantAdapter.ListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_row_tenant, parent, false);
+    public ListBookingAdapter.ListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_row_booking, parent, false);
         return new ListViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ListTenantAdapter.ListViewHolder holder, int position) {
-        final String tenantName = listTenant.get(position).getNamaPenyewa();
-        final String roomNumber = listTenant.get(position).getNomorKamar();
-        final String phoneNumber = listTenant.get(position).getNomorTelepon();
-        holder.tvItemTenantName.setText(tenantName);
+    public void onBindViewHolder(@NonNull ListBookingAdapter.ListViewHolder holder, int position) {
+        final String bookingName = listBooking.get(position).getNamaPenyewa();
+        final String roomNumber = listBooking.get(position).getNomorKamar();
+        final String phoneNumber = listBooking.get(position).getNomorTelepon();
+        holder.tvItemBookingName.setText(bookingName);
         holder.tvItemRoomNumber.setText("Nomor Kamar\t\t: " + roomNumber);
         holder.tvItemPhoneNumber.setText("Nomor Telepon\t: " + phoneNumber);
-        holder.imgItemTenant.setImageResource(R.drawable.ic_tenant_data);
+        holder.imgItemBooking.setImageResource(R.drawable.ic_booking);
     }
 
     @Override
     public int getItemCount() {
-        return listTenant.size();
+        return listBooking.size();
     }
 
     public class ListViewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener, MenuItem.OnMenuItemClickListener {
-        CardView cvItemtenant;
-        ImageView imgItemTenant, ivBgNotFound;
-        TextView tvItemTenantName, tvItemRoomNumber, tvItemPhoneNumber;
+        CardView cvItemBooking;
+        ImageView imgItemBooking, ivBgNotFound;
+        TextView tvItemBookingName, tvItemRoomNumber, tvItemPhoneNumber;
         Button btnAddData;
 
         public ListViewHolder(@NonNull View itemView) {
             super(itemView);
-            cvItemtenant = itemView.findViewById(R.id.cv_item_booking);
-            imgItemTenant = itemView.findViewById(R.id.img_item_booking_photo);
-            tvItemTenantName = itemView.findViewById(R.id.tv_item_booking_name);
+            cvItemBooking = itemView.findViewById(R.id.cv_item_booking);
+            imgItemBooking = itemView.findViewById(R.id.img_item_booking_photo);
+            tvItemBookingName = itemView.findViewById(R.id.tv_item_booking_name);
             tvItemRoomNumber = itemView.findViewById(R.id.tv_item_room_number);
             tvItemPhoneNumber = itemView.findViewById(R.id.tv_item_phone_number);
 
@@ -95,24 +95,24 @@ public class ListTenantAdapter extends RecyclerView.Adapter<ListTenantAdapter.Li
         public boolean onMenuItemClick(MenuItem item) {
             switch (item.getItemId()) {
                 case 1:
-                    onEditTenant(getAdapterPosition());
+                    onEditBooking(getAdapterPosition());
                     break;
                 case 2:
-                    onDeleteTenant(getAdapterPosition());
+                    onDeleteBooking(getAdapterPosition());
             }
             return false;
         }
     }
 
-    private void onEditTenant(int position) {
-        context.startActivity(new Intent((Activity) context, BookkeepingActivity.class).putExtra("DATA", listTenant.get(position)));
+    private void onEditBooking(int position) {
+        context.startActivity(new Intent((Activity) context, BookkeepingActivity.class).putExtra("DATA_BOOKING", listBooking.get(position)));
     }
 
-    public void onDeleteTenant(int position) {
-        database.bookkeepingDao().deleteBookkeeping(listTenant.get(position));
-        listTenant.remove(position);
+    public void onDeleteBooking(int position) {
+        database.bookingDao().deleteBooking(listBooking.get(position));
+        listBooking.remove(position);
         notifyItemRemoved(position);
-        notifyItemRangeRemoved(position, listTenant.size());
+        notifyItemRangeRemoved(position, listBooking.size());
         Toast.makeText(context, "Data telah dihapus", Toast.LENGTH_SHORT).show();
     }
 }

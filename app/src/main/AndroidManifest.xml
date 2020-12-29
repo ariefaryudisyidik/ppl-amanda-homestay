@@ -40,6 +40,11 @@
             android:label="Data Penyewa"
             android:screenOrientation="portrait"
             android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".BookingActivity"
+            android:label="Booking"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".LoginActivity" />
         <activity
             android:name=".OnboardingActivity"

@@ -15,7 +15,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/round_border_2">
+        android:background="@drawable/round_border_orange">
 
         <ImageView
             android:id="@+id/img_item_booking_photo"
@@ -27,7 +27,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_tenant_data" />
+            app:srcCompat="@drawable/ic_booking" />
 
         <TextView
             android:id="@+id/tv_item_booking_name"

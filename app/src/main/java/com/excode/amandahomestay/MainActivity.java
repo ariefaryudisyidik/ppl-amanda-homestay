@@ -138,6 +138,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.cv_notification:
                 break;
             case R.id.cv_booking:
+                startActivity(new Intent(MainActivity.this, BookingActivity.class));
                 break;
             case R.id.cv_note:
                 startActivity(new Intent(MainActivity.this, NotesListActivity.class));

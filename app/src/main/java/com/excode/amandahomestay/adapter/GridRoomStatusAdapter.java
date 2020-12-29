@@ -9,7 +9,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
-import androidx.room.RoomDatabase;
 
 import com.excode.amandahomestay.R;
 import com.excode.amandahomestay.database.BookkeepingDatabase;
@@ -54,7 +53,7 @@ public class GridRoomStatusAdapter extends RecyclerView.Adapter<GridRoomStatusAd
 
         public GridViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvRoomNumber = itemView.findViewById(R.id.tv_item_tenant_name);
+            tvRoomNumber = itemView.findViewById(R.id.tv_item_booking_name);
         }
     }
 

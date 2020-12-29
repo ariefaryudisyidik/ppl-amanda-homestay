@@ -20,7 +20,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.cottacush.android.currencyedittext.CurrencyEditText;
+import com.excode.amandahomestay.database.BookingDatabase;
 import com.excode.amandahomestay.database.BookkeepingDatabase;
+import com.excode.amandahomestay.model.Booking;
 import com.excode.amandahomestay.model.Bookkeeping;
 
 import java.text.DecimalFormat;
@@ -31,7 +33,8 @@ import java.util.Currency;
 import java.util.Locale;
 
 public class BookkeepingActivity extends AppCompatActivity implements View.OnClickListener {
-    private BookkeepingDatabase database;
+    private BookkeepingDatabase dbBookkeeping;
+    private BookingDatabase dbBooking;
     private DatePickerDialog datePickerDialog;
     private SimpleDateFormat dateFormat;
     private EditText edtTenantName, edtRoomNumber, edtPhoneNumber, edtEntryDate, edtOutDate;
@@ -43,8 +46,11 @@ public class BookkeepingActivity extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bookkeeping);
 
-        database = Room.databaseBuilder(getApplicationContext(),
+        dbBookkeeping = Room.databaseBuilder(getApplicationContext(),
                 BookkeepingDatabase.class, "bookkeeping_db").build();
+
+        dbBooking = Room.databaseBuilder(getApplicationContext(),
+                BookingDatabase.class, "booking_db").build();
 
 
         edtTenantName = findViewById(R.id.edt_tenant_name);
@@ -63,6 +69,8 @@ public class BookkeepingActivity extends AppCompatActivity implements View.OnCli
         btnCancel.setOnClickListener(this);
 
         final Bookkeeping bookkeeping = (Bookkeeping) getIntent().getSerializableExtra("DATA");
+        final Booking booking = (Booking) getIntent().getSerializableExtra("DATA_BOOKING");
+
         //Edit
         if (bookkeeping != null) {
             edtTenantName.setText(bookkeeping.getNamaPenyewa());
@@ -81,11 +89,46 @@ public class BookkeepingActivity extends AppCompatActivity implements View.OnCli
                     bookkeeping.setTanggalKeluar(edtOutDate.getText().toString());
                     bookkeeping.setBiaya(edtCost.getText().toString());
                     updateTenant(bookkeeping);
-                    getParentActivityIntent();
+                    startActivity(new Intent(BookkeepingActivity.this, TenantActivity.class));
                     finish();
                 }
             });
-        } //Create
+            btnCancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(BookkeepingActivity.this, TenantActivity.class));
+                    finish();
+                }
+            });
+        } else if (booking != null) {
+            edtTenantName.setText(booking.getNamaPenyewa());
+            edtRoomNumber.setText(booking.getNomorKamar());
+            edtPhoneNumber.setText(booking.getNomorTelepon());
+            edtEntryDate.setText(booking.getTanggalMasuk());
+            edtOutDate.setText(booking.getTanggalKeluar());
+            edtCost.setText(booking.getBiaya());
+            btnSave.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    booking.setNamaPenyewa(edtTenantName.getText().toString());
+                    booking.setNomorKamar(edtRoomNumber.getText().toString());
+                    booking.setNomorTelepon(edtPhoneNumber.getText().toString());
+                    booking.setTanggalMasuk(edtEntryDate.getText().toString());
+                    booking.setTanggalKeluar(edtOutDate.getText().toString());
+                    booking.setBiaya(edtCost.getText().toString());
+                    updateBooking(booking);
+                    startActivity(new Intent(BookkeepingActivity.this, BookingActivity.class));
+                    finish();
+                }
+            });
+            btnCancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(BookkeepingActivity.this, BookingActivity.class));
+                    finish();
+                }
+            });
+        }//Create
         else {
             btnSave.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -105,6 +148,21 @@ public class BookkeepingActivity extends AppCompatActivity implements View.OnCli
                             bookkeeping.setTanggalKeluar(edtOutDate.getText().toString());
                             bookkeeping.setBiaya(edtCost.getText().toString());
                             insertBookkeeping(bookkeeping);
+                            clear();
+                        }
+                    });
+
+                    btnBooking.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Booking booking = new Booking();
+                            booking.setNamaPenyewa(edtTenantName.getText().toString());
+                            booking.setNomorKamar(edtRoomNumber.getText().toString());
+                            booking.setNomorTelepon(edtPhoneNumber.getText().toString());
+                            booking.setTanggalMasuk(edtEntryDate.getText().toString());
+                            booking.setTanggalKeluar(edtOutDate.getText().toString());
+                            booking.setBiaya(edtCost.getText().toString());
+                            insertBooking(booking);
                             clear();
                         }
                     });
@@ -163,7 +221,22 @@ public class BookkeepingActivity extends AppCompatActivity implements View.OnCli
         new AsyncTask<Void, Void, Long>() {
             @Override
             protected Long doInBackground(Void... voids) {
-                long status = database.bookkeepingDao().insertBookkeeping(bookkeeping);
+                long status = dbBookkeeping.bookkeepingDao().insertBookkeeping(bookkeeping);
+                return status;
+            }
+
+            @Override
+            protected void onPostExecute(Long aLong) {
+                Toast.makeText(BookkeepingActivity.this, "Data berhasil disimpan", Toast.LENGTH_SHORT).show();
+            }
+        }.execute();
+    }
+
+    private void insertBooking(Booking booking) {
+        new AsyncTask<Void, Void, Long>() {
+            @Override
+            protected Long doInBackground(Void... voids) {
+                long status = dbBooking.bookingDao().insertBooking(booking);
                 return status;
             }
 
@@ -178,13 +251,28 @@ public class BookkeepingActivity extends AppCompatActivity implements View.OnCli
         new AsyncTask<Void, Void, Long>() {
             @Override
             protected Long doInBackground(Void... voids) {
-                long status = database.bookkeepingDao().updateBookkeeping(bookkeeping);
+                long status = dbBookkeeping.bookkeepingDao().updateBookkeeping(bookkeeping);
                 return status;
             }
 
             @Override
             protected void onPostExecute(Long aLong) {
-                Toast.makeText(BookkeepingActivity.this, "Data berhasil diubah", Toast.LENGTH_SHORT).show();
+                Toast.makeText(BookkeepingActivity.this, "Data berhasil disimpan", Toast.LENGTH_SHORT).show();
+            }
+        }.execute();
+    }
+
+    private void updateBooking(Booking booking) {
+        new AsyncTask<Void, Void, Long>() {
+            @Override
+            protected Long doInBackground(Void... voids) {
+                long status = dbBooking.bookingDao().updateBooking(booking);
+                return status;
+            }
+
+            @Override
+            protected void onPostExecute(Long aLong) {
+                Toast.makeText(BookkeepingActivity.this, "Data berhasil disimpan", Toast.LENGTH_SHORT).show();
             }
         }.execute();
     }
