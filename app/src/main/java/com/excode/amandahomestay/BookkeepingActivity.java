@@ -36,7 +36,7 @@ public class BookkeepingActivity extends AppCompatActivity implements View.OnCli
     private SimpleDateFormat dateFormat;
     private EditText edtTenantName, edtRoomNumber, edtPhoneNumber, edtEntryDate, edtOutDate;
     private CurrencyEditText edtCost;
-    private Button btnSave, btnCancel;
+    private Button btnSave, btnTenant, btnBooking, btnCancel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +54,8 @@ public class BookkeepingActivity extends AppCompatActivity implements View.OnCli
         edtOutDate = findViewById(R.id.edt_out_date);
         edtCost = findViewById(R.id.edt_cost);
         btnSave = findViewById(R.id.btn_save);
+        btnTenant = findViewById(R.id.btn_tenant);
+        btnBooking = findViewById(R.id.btn_booking);
         btnCancel = findViewById(R.id.btn_cancel);
 
         edtEntryDate.setOnClickListener(this);
@@ -88,15 +90,24 @@ public class BookkeepingActivity extends AppCompatActivity implements View.OnCli
             btnSave.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Bookkeeping bookkeeping = new Bookkeeping();
-                    bookkeeping.setNamaPenyewa(edtTenantName.getText().toString());
-                    bookkeeping.setNomorKamar(edtRoomNumber.getText().toString());
-                    bookkeeping.setNomorTelepon(edtPhoneNumber.getText().toString());
-                    bookkeeping.setTanggalMasuk(edtEntryDate.getText().toString());
-                    bookkeeping.setTanggalKeluar(edtOutDate.getText().toString());
-                    bookkeeping.setBiaya(edtCost.getText().toString());
-                    insertBookkeeping(bookkeeping);
-                    clear();
+                    btnSave.setVisibility(View.GONE);
+                    btnTenant.setVisibility(View.VISIBLE);
+                    btnBooking.setVisibility(View.VISIBLE);
+
+                    btnTenant.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Bookkeeping bookkeeping = new Bookkeeping();
+                            bookkeeping.setNamaPenyewa(edtTenantName.getText().toString());
+                            bookkeeping.setNomorKamar(edtRoomNumber.getText().toString());
+                            bookkeeping.setNomorTelepon(edtPhoneNumber.getText().toString());
+                            bookkeeping.setTanggalMasuk(edtEntryDate.getText().toString());
+                            bookkeeping.setTanggalKeluar(edtOutDate.getText().toString());
+                            bookkeeping.setBiaya(edtCost.getText().toString());
+                            insertBookkeeping(bookkeeping);
+                            clear();
+                        }
+                    });
                 }
             });
         }

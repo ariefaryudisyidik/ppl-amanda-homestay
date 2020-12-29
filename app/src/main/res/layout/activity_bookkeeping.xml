@@ -230,75 +230,90 @@
                 app:localeTag="id-ID"
                 app:useCurrencySymbolAsHint="true" />
 
-            <Button
-                android:id="@+id/btn_save"
-                style="@style/Widget.AppCompat.Button.Colored"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_1"
                 android:layout_width="0dp"
                 android:layout_height="55dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="4dp"
                 android:layout_marginBottom="16dp"
-                android:text="@string/save"
-                android:textAllCaps="false"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/btn_cancel"
+                app:layout_constraintEnd_toStartOf="@+id/cl_2"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edt_cost"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toBottomOf="@+id/edt_cost">
 
-            <Button
-                android:id="@+id/btn_tenant"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="81dp"
-                android:layout_height="55dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginBottom="16dp"
-                android:text="Data Penyewa"
-                android:textAllCaps="false"
-                android:textSize="12sp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edt_cost"
-                app:layout_constraintVertical_bias="0.0" />
+                <Button
+                    android:id="@+id/btn_save"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:text="@string/save"
+                    android:textAllCaps="false"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@+id/btn_booking"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="81dp"
-                android:layout_height="55dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginBottom="16dp"
-                android:text="Booking"
-                android:textAllCaps="false"
-                android:textSize="12sp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/btn_tenant"
-                app:layout_constraintTop_toBottomOf="@+id/edt_cost"
-                app:layout_constraintVertical_bias="0.0" />
+                <Button
+                    android:id="@+id/btn_booking"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="81dp"
+                    android:layout_height="0dp"
+                    android:text="Booking"
+                    android:textAllCaps="false"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/btn_tenant"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@+id/btn_cancel"
-                style="@style/Widget.AppCompat.Button"
+                <Button
+                    android:id="@+id/btn_tenant"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="81dp"
+                    android:layout_height="0dp"
+                    android:text="Data Penyewa"
+                    android:textAllCaps="false"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/btn_booking"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_2"
                 android:layout_width="0dp"
                 android:layout_height="55dp"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
-                android:shadowColor="@color/black"
-                android:text="@string/cancel"
-                android:textAllCaps="false"
-                android:textColor="@color/primary"
-                android:theme="@style/ButtonStyle"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/btn_save"
-                app:layout_constraintTop_toBottomOf="@+id/edt_cost" />
+                app:layout_constraintStart_toEndOf="@+id/cl_1"
+                app:layout_constraintTop_toBottomOf="@+id/edt_cost">
+
+                <Button
+                    android:id="@+id/btn_cancel"
+                    style="@style/Widget.AppCompat.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:shadowColor="@color/black"
+                    android:text="@string/cancel"
+                    android:textAllCaps="false"
+                    android:textColor="@color/primary"
+                    android:theme="@style/ButtonStyle"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
