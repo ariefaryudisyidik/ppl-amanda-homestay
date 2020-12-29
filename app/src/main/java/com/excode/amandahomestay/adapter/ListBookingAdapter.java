@@ -55,7 +55,7 @@ public class ListBookingAdapter extends RecyclerView.Adapter<ListBookingAdapter.
         holder.tvItemBookingName.setText(bookingName);
         holder.tvItemRoomNumber.setText("Nomor Kamar\t\t: " + roomNumber);
         holder.tvItemPhoneNumber.setText("Nomor Telepon\t: " + phoneNumber);
-        holder.tvItemBookingDate.setText("Booked\n"+bookingDate);
+        holder.tvItemBookingDate.setText("Booked on\n"+bookingDate);
         holder.imgItemBooking.setImageResource(R.drawable.ic_booking);
     }
 

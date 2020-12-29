@@ -22,7 +22,7 @@
         android:padding="10dp"
         android:text="Some Note Title"
         android:textColor="@color/black"
-        android:textSize="23sp" />
+        android:textSize="18sp" />
 
     <View
         android:layout_width="0dp"
@@ -35,7 +35,6 @@
         android:layout_height="wrap_content"
         android:layout_weight="20"
         android:padding="10dp"
-        android:text="Dec 1 2019"
-        android:textSize="17sp" />
+        android:text="Dec 1 2019" />
 
 </LinearLayout>
