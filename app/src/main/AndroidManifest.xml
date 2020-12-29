@@ -33,10 +33,12 @@
         <activity
             android:name=".RoomStatusActivity"
             android:label="Status Kamar"
+            android:screenOrientation="portrait"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".TenantActivity"
             android:label="Data Penyewa"
+            android:screenOrientation="portrait"
             android:parentActivityName=".MainActivity" />
         <activity android:name=".LoginActivity" />
         <activity
