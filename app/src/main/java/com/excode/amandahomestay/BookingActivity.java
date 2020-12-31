@@ -88,11 +88,4 @@ public class BookingActivity extends AppCompatActivity implements View.OnClickLi
                 break;
         }
     }
-
-    @Override
-    public void onBackPressed() {
-        startActivity(new Intent(BookingActivity.this, MainActivity.class));
-        finish();
-        super.onBackPressed();
-    }
 }

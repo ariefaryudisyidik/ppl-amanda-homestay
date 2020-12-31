@@ -109,6 +109,7 @@ public class ListBookingAdapter extends RecyclerView.Adapter<ListBookingAdapter.
 
     private void onEditBooking(int position) {
         context.startActivity(new Intent((Activity) context, BookkeepingActivity.class).putExtra("DATA_BOOKING", listBooking.get(position)));
+        ((Activity) context).finish();
     }
 
     public void onDeleteBooking(int position) {

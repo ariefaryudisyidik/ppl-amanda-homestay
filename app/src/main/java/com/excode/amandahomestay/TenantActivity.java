@@ -89,11 +89,4 @@ public class TenantActivity extends AppCompatActivity implements View.OnClickLis
                 break;
         }
     }
-
-    @Override
-    public void onBackPressed() {
-        startActivity(new Intent(TenantActivity.this, MainActivity.class));
-        finish();
-        super.onBackPressed();
-    }
 }

@@ -106,6 +106,7 @@ public class ListTenantAdapter extends RecyclerView.Adapter<ListTenantAdapter.Li
 
     private void onEditTenant(int position) {
         context.startActivity(new Intent((Activity) context, BookkeepingActivity.class).putExtra("DATA", listTenant.get(position)));
+        ((Activity) context).finish();
     }
 
     public void onDeleteTenant(int position) {
