@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="60dp"
+    android:layout_weight="100"
     android:background="@color/primary_light"
     android:gravity="center_vertical"
-    android:orientation="horizontal"
-    android:weightSum="100">
+    android:orientation="horizontal">
 
     <View
         android:layout_width="0dp"
@@ -17,17 +17,13 @@
         android:id="@+id/note_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="75"
+        android:layout_marginRight="16dp"
+        android:layout_weight="80"
         android:lines="1"
         android:padding="10dp"
         android:text="Some Note Title"
         android:textColor="@color/black"
         android:textSize="18sp" />
-
-    <View
-        android:layout_width="0dp"
-        android:layout_height="10dp"
-        android:layout_weight="4" />
 
     <TextView
         android:id="@+id/note_timestamp"
