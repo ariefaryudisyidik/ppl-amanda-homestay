@@ -51,7 +51,7 @@ public class NotesListActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes_list);
 
-        ivBgNotFound2 = findViewById(R.id.iv_bg_not_found2);
+        ivBgNotFound2 = findViewById(R.id.iv_bg_not_found);
         mRecyclerView = findViewById(R.id.recyclerView);
 
 

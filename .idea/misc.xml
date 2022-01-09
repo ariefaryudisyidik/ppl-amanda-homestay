@@ -3,17 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Project/Android Studio/Amanda Homestay/app/src/main/res/drawable/bg_not_found.xml" value="0.19166666666666668" />
         <entry key="..\:/Project/Android Studio/Amanda Homestay/app/src/main/res/drawable/gradient_blue.xml" value="0.19166666666666668" />
         <entry key="..\:/Project/Android Studio/Amanda Homestay/app/src/main/res/drawable/gradient_white.xml" value="0.19166666666666668" />
+        <entry key="..\:/Project/Android Studio/Amanda Homestay/app/src/main/res/drawable/ic_booking.xml" value="0.1" />
         <entry key="..\:/Project/Android Studio/Amanda Homestay/app/src/main/res/drawable/ic_bookkeeping.xml" value="0.19166666666666668" />
+        <entry key="..\:/Project/Android Studio/Amanda Homestay/app/src/main/res/drawable/ic_no_data.xml" value="0.19166666666666668" />
         <entry key="..\:/Project/Android Studio/Amanda Homestay/app/src/main/res/drawable/ic_person.xml" value="0.19166666666666668" />
         <entry key="..\:/Project/Android Studio/Amanda Homestay/app/src/main/res/drawable/ic_person_24.xml" value="0.19166666666666668" />
         <entry key="..\:/Project/Android Studio/Amanda Homestay/app/src/main/res/drawable/ic_tenant_data.xml" value="0.19166666666666668" />
         <entry key="..\:/Project/Android Studio/Amanda Homestay/app/src/main/res/drawable/round_border_2.xml" value="0.19166666666666668" />
         <entry key="..\:/Project/Android Studio/Amanda Homestay/app/src/main/res/drawable/splash_brand_logo.xml" value="0.19166666666666668" />
+        <entry key="..\:/Project/Android Studio/Amanda Homestay/app/src/main/res/layout/activity_booking.xml" value="0.22" />
         <entry key="..\:/Project/Android Studio/Amanda Homestay/app/src/main/res/layout/activity_bookkeeping.xml" value="0.3333333333333333" />
         <entry key="..\:/Project/Android Studio/Amanda Homestay/app/src/main/res/layout/activity_main.xml" value="0.17552083333333332" />
-        <entry key="..\:/Project/Android Studio/Amanda Homestay/app/src/main/res/layout/activity_tenant.xml" value="0.1" />
+        <entry key="..\:/Project/Android Studio/Amanda Homestay/app/src/main/res/layout/activity_note.xml" value="0.17552083333333332" />
+        <entry key="..\:/Project/Android Studio/Amanda Homestay/app/src/main/res/layout/activity_notes_list.xml" value="0.17552083333333332" />
+        <entry key="..\:/Project/Android Studio/Amanda Homestay/app/src/main/res/layout/activity_tenant.xml" value="0.16666666666666666" />
         <entry key="..\:/Project/Android Studio/Amanda Homestay/app/src/main/res/layout/header.xml" value="0.17552083333333332" />
         <entry key="..\:/Project/Android Studio/Amanda Homestay/app/src/main/res/menu/menu_context.xml" value="0.17552083333333332" />
       </map>
