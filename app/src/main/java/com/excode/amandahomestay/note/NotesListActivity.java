@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -139,6 +140,7 @@ public class NotesListActivity extends AppCompatActivity implements
         mNotes.remove(note);
         mNoteRecyclerAdapter.notifyDataSetChanged();
         mNoteRepository.deleteNoteTask(note);
+        Toast.makeText(this, "Catatan telah dihapus", Toast.LENGTH_SHORT).show();
     }
 
     ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
