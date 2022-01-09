@@ -34,7 +34,7 @@ public class NotesListActivity extends AppCompatActivity implements
     private RecyclerView mRecyclerView;
 
     //vars
-    private ArrayList<Note> mNotes = new ArrayList<>();
+    private ArrayList<Note> list = new ArrayList<>();
     private NotesRecyclerAdapter mNoteRecyclerAdapter;
     private NoteRepository mNoteRepository;
 
@@ -50,8 +50,8 @@ public class NotesListActivity extends AppCompatActivity implements
         findViewById(R.id.fab).setOnClickListener(this);
 
         mNoteRepository = new NoteRepository(this);
-        
-        initRecyclerView();
+
+        showRecyclerList();
         retrieveNotes();
         //insertFakeNotes();
         //Log.d(TAG, "onCreate: thread: " + Thread.currentThread().getName());
@@ -60,19 +60,17 @@ public class NotesListActivity extends AppCompatActivity implements
     }
 
     private void retrieveNotes() {
-
         mNoteRepository.retrieveNotesTask().observe(this, new Observer<List<Note>>() {
             @Override
             public void onChanged(@Nullable List<Note> notes) {
-                if (mNotes.size() > 0) {
-                    mNotes.clear();
+                mNoteRecyclerAdapter.notifyDataSetChanged();
+                if (list.size() > 0) {
+                    list.clear();
                 }
                 if (notes != null) {
-                    mNotes.addAll(notes);
+                    list.addAll(notes);
                 }
-                mNoteRecyclerAdapter.notifyDataSetChanged();
-
-                if (mNotes.isEmpty()) {
+                if (list.isEmpty()) {
                     mRecyclerView.setVisibility(View.GONE);
                     ivBgNotFound2.setVisibility(View.VISIBLE);
                 } else {
@@ -97,51 +95,37 @@ public class NotesListActivity extends AppCompatActivity implements
     }
  */
 
-    private void initRecyclerView() {
-
+    private void showRecyclerList() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-
         mRecyclerView.setLayoutManager(linearLayoutManager);
-
         VerticalSpacingItemDecorator itemDecorator = new VerticalSpacingItemDecorator(10);
         mRecyclerView.addItemDecoration(itemDecorator);
-
         new ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(mRecyclerView);
-
-        mNoteRecyclerAdapter = new NotesRecyclerAdapter(mNotes, this);
+        mNoteRecyclerAdapter = new NotesRecyclerAdapter(list, this);
         mRecyclerView.setAdapter(mNoteRecyclerAdapter);
-
-
     }
 
     @Override
     public void onNoteClick(int position) {
         Log.d(TAG, "onNoteClick: clicked " + position);
-
-
         Intent intent = new Intent(this, NoteActivity.class);
-
-        intent.putExtra("selected_note", mNotes.get(position));
-
-
+        intent.putExtra("selected_note", list.get(position));
         startActivity(intent);
-
-
     }
 
     @Override
     public void onClick(View v) {
         Intent intent = new Intent(this, NoteActivity.class);
         startActivity(intent);
-
     }
 
     private void deleteNote(Note note) {
-        mNotes.remove(note);
+        list.remove(note);
         mNoteRecyclerAdapter.notifyDataSetChanged();
         mNoteRepository.deleteNoteTask(note);
         Toast.makeText(this, "Catatan telah dihapus", Toast.LENGTH_SHORT).show();
     }
+
 
     ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
         @Override
@@ -151,7 +135,7 @@ public class NotesListActivity extends AppCompatActivity implements
 
         @Override
         public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-            deleteNote(mNotes.get(viewHolder.getAdapterPosition()));
+            deleteNote(list.get(viewHolder.getAdapterPosition()));
         }
     };
 }

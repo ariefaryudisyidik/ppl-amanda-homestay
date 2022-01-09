@@ -21,6 +21,7 @@ import androidx.room.Room;
 
 import com.excode.amandahomestay.BookkeepingActivity;
 import com.excode.amandahomestay.R;
+import com.excode.amandahomestay.TenantActivity;
 import com.excode.amandahomestay.database.BookkeepingDatabase;
 import com.excode.amandahomestay.model.Bookkeeping;
 
@@ -63,22 +64,17 @@ public class ListTenantAdapter extends RecyclerView.Adapter<ListTenantAdapter.Li
     }
 
     public class ListViewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener, MenuItem.OnMenuItemClickListener {
-        CardView cvItemtenant;
-        ImageView imgItemTenant, ivBgNotFound;
+        CardView cvItemTenant;
+        ImageView imgItemTenant;
         TextView tvItemTenantName, tvItemRoomNumber, tvItemPhoneNumber;
-        Button btnAddData;
 
         public ListViewHolder(@NonNull View itemView) {
             super(itemView);
-            cvItemtenant = itemView.findViewById(R.id.cv_item_booking);
+            cvItemTenant = itemView.findViewById(R.id.cv_item_booking);
             imgItemTenant = itemView.findViewById(R.id.img_item_booking_photo);
             tvItemTenantName = itemView.findViewById(R.id.tv_item_booking_name);
             tvItemRoomNumber = itemView.findViewById(R.id.tv_item_room_number);
             tvItemPhoneNumber = itemView.findViewById(R.id.tv_item_phone_number);
-
-            ivBgNotFound = itemView.findViewById(R.id.iv_bg_not_found);
-            btnAddData = itemView.findViewById(R.id.btn_add_data);
-
             itemView.setOnCreateContextMenuListener(this);
         }
 
@@ -99,6 +95,7 @@ public class ListTenantAdapter extends RecyclerView.Adapter<ListTenantAdapter.Li
                     break;
                 case 2:
                     onDeleteTenant(getAdapterPosition());
+                    break;
             }
             return false;
         }
@@ -112,8 +109,11 @@ public class ListTenantAdapter extends RecyclerView.Adapter<ListTenantAdapter.Li
     public void onDeleteTenant(int position) {
         database.bookkeepingDao().deleteBookkeeping(listTenant.get(position));
         listTenant.remove(position);
-        notifyItemRemoved(position);
-        notifyItemRangeRemoved(position, listTenant.size());
+        if (listTenant.size() > 0) {
+            notifyItemRemoved(position);
+        } else {
+            notifyDataSetChanged();
+        }
         Toast.makeText(context, "Data telah dihapus", Toast.LENGTH_SHORT).show();
     }
 }

@@ -1,5 +1,6 @@
 package com.excode.amandahomestay;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.lifecycle.Observer;
@@ -21,7 +22,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TenantActivity extends AppCompatActivity implements View.OnClickListener {
-    private RecyclerView rvTenants;
+    private ListTenantAdapter listTenantAdapter;
+    public RecyclerView rvTenants;
     private ArrayList<Bookkeeping> list = new ArrayList<>();
     private BookkeepingRepository mBookkeepingRepository;
 
@@ -33,50 +35,68 @@ public class TenantActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tenant);
 
-        // Database
-        /*
-        database = Room.databaseBuilder(getApplicationContext(),
-                BookkeepingDatabase.class, "dbbookkeeping").allowMainThreadQueries().build();
-         */
-
-        // RecyclerView
-        rvTenants = findViewById(R.id.rv_bookings);
-        rvTenants.setHasFixedSize(true);
-
-        // TenantsData
-        mBookkeepingRepository = new BookkeepingRepository(this);
-        mBookkeepingRepository.retrieveNotesTask().observe(this, new Observer<List<Bookkeeping>>() {
-            @Override
-            public void onChanged(List<Bookkeeping> bookkeepings) {
-                if (list.size() > 0) {
-                    list.clear();
-                }
-                if (bookkeepings != null) {
-                    list.addAll(bookkeepings);
-                }
-
-                if (list.isEmpty()) {
-                    ivBgNotFound.setVisibility(View.VISIBLE);
-                    btnAddData.setVisibility(View.VISIBLE);
-                    rvTenants.setVisibility(View.GONE);
-                } else {
-                    ivBgNotFound.setVisibility(View.GONE);
-                    btnAddData.setVisibility(View.GONE);
-                    rvTenants.setVisibility(View.VISIBLE);
-                }
-            }
-        });
-        showRecyclerList();
-
         // Cast Component
         ivBgNotFound = findViewById(R.id.iv_bg_not_found);
         btnAddData = findViewById(R.id.btn_add_data);
+        rvTenants = findViewById(R.id.rv_bookings);
+
+        //Event
         btnAddData.setOnClickListener(this);
+        showRecyclerList();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mBookkeepingRepository = new BookkeepingRepository(this);
+        retrieveTenant();
+    }
+
+    private void retrieveTenant() {
+        // TenantsData
+        mBookkeepingRepository.retrieveNotesTask().observe(this, new Observer<List<Bookkeeping>>() {
+            @Override
+            public void onChanged(@Nullable List<Bookkeeping> bookkeepings) {
+                if (bookkeepings != null) {
+                    list.addAll(bookkeepings);
+                    listTenantAdapter.notifyDataSetChanged();
+                }
+                if (bookkeepings.isEmpty()) {
+                    rvTenants.setVisibility(View.GONE);
+                    ivBgNotFound.setVisibility(View.VISIBLE);
+                    btnAddData.setVisibility(View.VISIBLE);
+                    listTenantAdapter.notifyDataSetChanged();
+                } else {
+                    rvTenants.setVisibility(View.VISIBLE);
+                    ivBgNotFound.setVisibility(View.GONE);
+                    btnAddData.setVisibility(View.GONE);
+                    listTenantAdapter.notifyDataSetChanged();
+                }
+                listTenantAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+                    @Override
+                    public void onChanged() {
+                        super.onChanged();
+                        if (list.size() == 0) {
+                            rvTenants.setVisibility(View.GONE);
+                            ivBgNotFound.setVisibility(View.VISIBLE);
+                            btnAddData.setVisibility(View.VISIBLE);
+                        } else {
+                            rvTenants.setVisibility(View.VISIBLE);
+                            ivBgNotFound.setVisibility(View.GONE);
+                            btnAddData.setVisibility(View.GONE);
+                        }
+                    }
+                });
+
+
+            }
+        });
     }
 
     private void showRecyclerList() {
+        rvTenants.setHasFixedSize(true);
         rvTenants.setLayoutManager(new LinearLayoutManager(this));
-        ListTenantAdapter listTenantAdapter = new ListTenantAdapter(list, this);
+        listTenantAdapter = new ListTenantAdapter(list, this);
         rvTenants.setAdapter(listTenantAdapter);
     }
 

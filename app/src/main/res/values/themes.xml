@@ -23,4 +23,11 @@
     <style name="Theme.AmandaHomestay.Light.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.AmandaHomestay.Light.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="TextBold">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fontFamily">@font/plusjakartatext_bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
 </resources>
