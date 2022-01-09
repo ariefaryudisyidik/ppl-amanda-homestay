@@ -23,6 +23,7 @@ public class BookingActivity extends AppCompatActivity implements View.OnClickLi
     private RecyclerView rvBookings;
     private ArrayList<Booking> list = new ArrayList<>();
     private BookingRepository mBookingRepository;
+    private ListBookingAdapter listBookingAdapter;
 
     private ImageView ivBgNotFound;
     private Button btnAddData;
@@ -32,50 +33,56 @@ public class BookingActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking);
 
-        // Database
-        /*
-        database = Room.databaseBuilder(getApplicationContext(),
-                BookkeepingDatabase.class, "dbbookkeeping").allowMainThreadQueries().build();
-         */
-
-        // RecyclerView
+        // Cast Component
+        ivBgNotFound = findViewById(R.id.iv_bg_not_found);
+        btnAddData = findViewById(R.id.btn_add_data);
         rvBookings = findViewById(R.id.rv_bookings);
-        rvBookings.setHasFixedSize(true);
+        btnAddData.setOnClickListener(this);
 
+        retrieveBooking();
+        showRecyclerList();
+    }
+
+    private void retrieveBooking() {
         // BookingsData
         mBookingRepository = new BookingRepository(this);
         mBookingRepository.retrieveNotesTask().observe(this, new Observer<List<Booking>>() {
             @Override
             public void onChanged(List<Booking> bookings) {
-                if (list.size() > 0) {
-                    list.clear();
-                }
-                if (bookings != null) {
-                    list.addAll(bookings);
-                }
-
-                if (list.isEmpty()) {
+                if (bookings.isEmpty()) {
+                    rvBookings.setVisibility(View.GONE);
                     ivBgNotFound.setVisibility(View.VISIBLE);
                     btnAddData.setVisibility(View.VISIBLE);
-                    rvBookings.setVisibility(View.GONE);
                 } else {
+                    list.addAll(bookings);
+                    rvBookings.setVisibility(View.VISIBLE);
                     ivBgNotFound.setVisibility(View.GONE);
                     btnAddData.setVisibility(View.GONE);
-                    rvBookings.setVisibility(View.VISIBLE);
                 }
+                
+                listBookingAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+                    @Override
+                    public void onChanged() {
+                        super.onChanged();
+                        if (list.size() == 0) {
+                            rvBookings.setVisibility(View.GONE);
+                            ivBgNotFound.setVisibility(View.VISIBLE);
+                            btnAddData.setVisibility(View.VISIBLE);
+                        } else {
+                            rvBookings.setVisibility(View.VISIBLE);
+                            ivBgNotFound.setVisibility(View.GONE);
+                            btnAddData.setVisibility(View.GONE);
+                        }
+                    }
+                });
             }
         });
-        showRecyclerList();
-
-        // Cast Component
-        ivBgNotFound = findViewById(R.id.iv_bg_not_found);
-        btnAddData = findViewById(R.id.btn_add_data);
-        btnAddData.setOnClickListener(this);
     }
 
     private void showRecyclerList() {
+        rvBookings.setHasFixedSize(true);
         rvBookings.setLayoutManager(new LinearLayoutManager(this));
-        ListBookingAdapter listBookingAdapter = new ListBookingAdapter(list, this);
+        listBookingAdapter = new ListBookingAdapter(list, this);
         rvBookings.setAdapter(listBookingAdapter);
     }
 

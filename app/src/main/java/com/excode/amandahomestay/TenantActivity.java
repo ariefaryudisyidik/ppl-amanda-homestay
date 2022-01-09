@@ -42,35 +42,25 @@ public class TenantActivity extends AppCompatActivity implements View.OnClickLis
 
         //Event
         btnAddData.setOnClickListener(this);
-        showRecyclerList();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        mBookkeepingRepository = new BookkeepingRepository(this);
         retrieveTenant();
+        showRecyclerList();
     }
 
     private void retrieveTenant() {
         // TenantsData
+        mBookkeepingRepository = new BookkeepingRepository(this);
         mBookkeepingRepository.retrieveNotesTask().observe(this, new Observer<List<Bookkeeping>>() {
             @Override
             public void onChanged(@Nullable List<Bookkeeping> bookkeepings) {
-                if (bookkeepings != null) {
-                    list.addAll(bookkeepings);
-                    listTenantAdapter.notifyDataSetChanged();
-                }
                 if (bookkeepings.isEmpty()) {
                     rvTenants.setVisibility(View.GONE);
                     ivBgNotFound.setVisibility(View.VISIBLE);
                     btnAddData.setVisibility(View.VISIBLE);
-                    listTenantAdapter.notifyDataSetChanged();
                 } else {
+                    list.addAll(bookkeepings);
                     rvTenants.setVisibility(View.VISIBLE);
                     ivBgNotFound.setVisibility(View.GONE);
                     btnAddData.setVisibility(View.GONE);
-                    listTenantAdapter.notifyDataSetChanged();
                 }
                 listTenantAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
                     @Override

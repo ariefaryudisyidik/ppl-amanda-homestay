@@ -66,9 +66,8 @@ public class ListBookingAdapter extends RecyclerView.Adapter<ListBookingAdapter.
 
     public class ListViewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener, MenuItem.OnMenuItemClickListener {
         CardView cvItemBooking;
-        ImageView imgItemBooking, ivBgNotFound;
+        ImageView imgItemBooking;
         TextView tvItemBookingName, tvItemRoomNumber, tvItemPhoneNumber, tvItemBookingDate;
-        Button btnAddData;
 
         public ListViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -78,10 +77,6 @@ public class ListBookingAdapter extends RecyclerView.Adapter<ListBookingAdapter.
             tvItemRoomNumber = itemView.findViewById(R.id.tv_item_room_number);
             tvItemPhoneNumber = itemView.findViewById(R.id.tv_item_phone_number);
             tvItemBookingDate = itemView.findViewById(R.id.tv_item_booking_date);
-
-            ivBgNotFound = itemView.findViewById(R.id.iv_bg_not_found);
-            btnAddData = itemView.findViewById(R.id.btn_add_data);
-
             itemView.setOnCreateContextMenuListener(this);
         }
 
@@ -115,8 +110,11 @@ public class ListBookingAdapter extends RecyclerView.Adapter<ListBookingAdapter.
     public void onDeleteBooking(int position) {
         database.bookingDao().deleteBooking(listBooking.get(position));
         listBooking.remove(position);
-        notifyItemRemoved(position);
-        notifyItemRangeRemoved(position, listBooking.size());
+        if (listBooking.size() > 0) {
+            notifyItemRemoved(position);
+        } else {
+            notifyDataSetChanged();
+        }
         Toast.makeText(context, "Data telah dihapus", Toast.LENGTH_SHORT).show();
     }
 }
