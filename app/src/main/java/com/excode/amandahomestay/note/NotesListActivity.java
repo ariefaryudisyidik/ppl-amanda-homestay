@@ -5,12 +5,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
-
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,16 +16,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.excode.amandahomestay.R;
 import com.excode.amandahomestay.note.adapters.NotesRecyclerAdapter;
 import com.excode.amandahomestay.note.models.Note;
-import com.excode.amandahomestay.note.persistence.NoteDao;
-import com.excode.amandahomestay.note.persistence.NoteDao_Impl;
-import com.excode.amandahomestay.note.persistence.NoteDatabase;
-import com.excode.amandahomestay.note.persistence.NoteDatabase_Impl;
 import com.excode.amandahomestay.note.persistence.NoteRepository;
 import com.excode.amandahomestay.note.util.VerticalSpacingItemDecorator;
 
-import java.io.NotActiveException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class NotesListActivity extends AppCompatActivity implements
