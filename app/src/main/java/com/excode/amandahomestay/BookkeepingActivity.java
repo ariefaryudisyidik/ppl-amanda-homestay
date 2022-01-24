@@ -1,24 +1,18 @@
 package com.excode.amandahomestay;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.solver.widgets.analyzer.VerticalWidgetRun;
-import androidx.room.Room;
-
-import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import com.cottacush.android.currencyedittext.CurrencyEditText;
 import com.excode.amandahomestay.database.BookingDatabase;
@@ -26,11 +20,8 @@ import com.excode.amandahomestay.database.BookkeepingDatabase;
 import com.excode.amandahomestay.model.Booking;
 import com.excode.amandahomestay.model.Bookkeeping;
 
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Currency;
 import java.util.Locale;
 
 public class BookkeepingActivity extends AppCompatActivity implements View.OnClickListener {

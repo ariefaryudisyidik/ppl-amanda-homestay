@@ -1,12 +1,11 @@
 package com.excode.amandahomestay;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.os.Bundle;
-import android.widget.GridLayout;
 
 import com.excode.amandahomestay.adapter.GridRoomStatusAdapter;
 import com.excode.amandahomestay.database.BookkeepingRepository;

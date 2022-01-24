@@ -1,5 +1,7 @@
 package com.excode.amandahomestay.note.adapters;
 
+import static android.content.ContentValues.TAG;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,8 +16,6 @@ import com.excode.amandahomestay.note.models.Note;
 import com.excode.amandahomestay.note.util.Utility;
 
 import java.util.ArrayList;
-
-import static android.content.ContentValues.TAG;
 
 /**
  * Created by Shakil Ahmed Shaj on 12-Apr-19.

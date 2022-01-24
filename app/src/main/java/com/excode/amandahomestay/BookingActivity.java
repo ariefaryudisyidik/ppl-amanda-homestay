@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.excode.amandahomestay.adapter.ListBookingAdapter;
 import com.excode.amandahomestay.database.BookingRepository;
 import com.excode.amandahomestay.model.Booking;
-import com.excode.amandahomestay.model.Bookkeeping;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,7 +58,7 @@ public class BookingActivity extends AppCompatActivity implements View.OnClickLi
                     ivBgNotFound.setVisibility(View.GONE);
                     btnAddData.setVisibility(View.GONE);
                 }
-                
+
                 listBookingAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
                     @Override
                     public void onChanged() {

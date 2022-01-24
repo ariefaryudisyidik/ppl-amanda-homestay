@@ -9,7 +9,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,7 +20,6 @@ import androidx.room.Room;
 
 import com.excode.amandahomestay.BookkeepingActivity;
 import com.excode.amandahomestay.R;
-import com.excode.amandahomestay.TenantActivity;
 import com.excode.amandahomestay.database.BookkeepingDatabase;
 import com.excode.amandahomestay.model.Bookkeeping;
 

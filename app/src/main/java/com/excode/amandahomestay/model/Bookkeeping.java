@@ -1,7 +1,5 @@
 package com.excode.amandahomestay.model;
 
-import android.text.TextUtils;
-
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;

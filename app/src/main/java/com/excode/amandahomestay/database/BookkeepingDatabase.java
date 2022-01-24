@@ -7,7 +7,6 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import com.excode.amandahomestay.model.Bookkeeping;
-import com.excode.amandahomestay.note.persistence.NoteDatabase;
 
 @Database(entities = {Bookkeeping.class}, version = 1)
 public abstract class BookkeepingDatabase extends RoomDatabase {

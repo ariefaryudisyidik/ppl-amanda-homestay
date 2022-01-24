@@ -1,22 +1,17 @@
 package com.excode.amandahomestay;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Adapter;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TableLayout;
 
-import com.google.android.material.slider.Slider;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
+
 import com.google.android.material.tabs.TabLayout;
 
 public class OnboardingActivity extends AppCompatActivity implements View.OnClickListener {

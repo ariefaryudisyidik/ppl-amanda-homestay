@@ -5,7 +5,6 @@ import android.content.Context;
 import androidx.lifecycle.LiveData;
 
 import com.excode.amandahomestay.model.Bookkeeping;
-import com.excode.amandahomestay.note.persistence.NoteDatabase;
 
 import java.util.List;
 
